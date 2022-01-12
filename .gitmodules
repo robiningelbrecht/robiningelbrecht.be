@@ -1,3 +1,6 @@
 [submodule "projects/playstation-trophy-cards"]
 	path = projects/playstation-trophy-cards
 	url = git@github.com:robiningelbrecht/playstation-trophy-cards.git
+[submodule "projects/psnprofiles-playstation-5-ui"]
+	path = projects/psnprofiles-playstation-5-ui
+	url = git@github.com:robiningelbrecht/psnprofiles-playstation-5-ui.git
