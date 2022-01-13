@@ -10,3 +10,6 @@
 [submodule "projects/presentations.robiningelbrecht.be"]
 	path = projects/presentations.robiningelbrecht.be
 	url = git@github.com:robiningelbrecht/presentations.robiningelbrecht.be.git
+[submodule "projects/sorting-algorithms-vanilla-js"]
+	path = projects/sorting-algorithms-vanilla-js
+	url = https://github.com/robiningelbrecht/sorting-algorithms-vanilla-js
