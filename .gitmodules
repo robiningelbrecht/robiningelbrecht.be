@@ -10,3 +10,6 @@
 [submodule "projects/sorting-algorithms-vanilla-js"]
 	path = projects/sorting-algorithms-vanilla-js
 	url = https://github.com/robiningelbrecht/sorting-algorithms-vanilla-js
+[submodule "projects/fibonacci-vanilla-js"]
+	path = projects/fibonacci-vanilla-js
+	url = git@github.com:robiningelbrecht/fibonacci-vanilla-js.git
