@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="author" content="Robin Ingelbrecht">
+    <meta name="designer" content="Robin Ingelbrecht">
+    <meta name="publisher" content="Robin Ingelbrecht">
+
+    <title>Robin Ingelbrecht</title>
+    <meta name="description" content="Mainly PHP developer">
+    <meta name="google-site-verification" content="WPE3904gGRHRtlyS7jlh01_imN7oMYWOWlTHqu5jElI"/>
+
+    <link rel="icon" href="assets/favicon.png" type="image/png"/>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="css/nes.min.css" rel="stylesheet"/>
+    <link href="css/stylez.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="theme-switcher">
+            <input type="checkbox" id="theme-switcher"/>
+            <div class="slider round"></div>
+        </label>
+        <em><label for="theme-switcher">Enable Dark Mode!</label></em>
+    </div>
+</nav>
+<div class="main-wrapper nes-container with-title is-centered is-rounded">
+    <p class="title">Hello there, stranger :)</p>
+    <section>
+        <h2>#About</h2>
+        <p>I'm an open source (web) developer at heart and always try to up my game by challenging myself and those
+            around me.</p>
+        <p><i class="nes-logo"></i></p>
+        <p>Obviously, I'm also into gaming</p>
+    </section>
+    <section>
+        <h2>#More</h2>
+        <div class="buttons">
+            <span class="nes-btn-wrapper">
+            <a href="https://www.drupal.org/u/robiningelbrecht" target="_blank"
+               class="nes-btn">Drupal.org</a>
+        </span>
+            <span class="nes-btn-wrapper">
+            <a href="https://ingelbrechtrobin.medium.com/" target="_blank"
+               class="nes-btn is-success">Medium</a>
+        </span>
+            <span class="nes-btn-wrapper">
+            <a href="https://www.linkedin.com/in/robin-ingelbrecht/" target="_blank"
+               class="nes-btn is-primary">Linkedin</a>
+        </span>
+            <span class="nes-btn-wrapper">
+            <a href="https://presentations.robiningelbrecht.be/" target="_blank"
+               class="nes-btn is-error">Presentations</a>
+        </span>
+        </div>
+    </section>
+</div>
+<script>
+  const htmlEl = document.getElementsByTagName('html')[0];
+
+  const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : (window.matchMedia('(prefers-color-scheme: dark)') ? 'dark': 'light');
+  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+  if (currentTheme) {
+    htmlEl.dataset.theme = currentTheme;
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+
+  const toggleTheme = (theme) => {
+    htmlEl.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
+  }
+
+  const switchTheme = (e) => {
+    if (e.target.checked) {
+      toggleTheme('dark');
+    } else {
+      toggleTheme('light');
+    }
+  }
+
+  toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+</body>
+</html>
