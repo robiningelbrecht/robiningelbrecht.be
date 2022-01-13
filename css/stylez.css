@@ -1,17 +1,17 @@
 html {
-    --background-primary: #fff;
+    --background-primary: #eee;
     --color-primary: #212529;
     --color-border: #212529;
 }
 
 html[data-theme='dark'] {
     --background-primary: #212529;
-    --color-primary: #fff;
+    --color-primary: #eee;
     --color-border: #333;
 }
 
 html[data-theme='dark'] .nes-container {
-    border-color: #fff;
+    border-color: #eee;
 }
 
 html, body, .nes-container.with-title > .title {
