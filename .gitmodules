@@ -16,3 +16,6 @@
 [submodule "projects/flippable-card-web-component"]
 	path = projects/flippable-card-web-component
 	url = git@github.com:robiningelbrecht/flippable-card-web-component.git
+[submodule "projects/sudoku-solver-vanilla-js"]
+	path = projects/sudoku-solver-vanilla-js
+	url = git@github.com:robiningelbrecht/sudoku-solver-vanilla-js.git
