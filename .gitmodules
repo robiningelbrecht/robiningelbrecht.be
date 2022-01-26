@@ -19,3 +19,6 @@
 [submodule "projects/sudoku-solver-vanilla-js"]
 	path = projects/sudoku-solver-vanilla-js
 	url = git@github.com:robiningelbrecht/sudoku-solver-vanilla-js.git
+[submodule "projects/pokemon-memory-game"]
+	path = projects/pokemon-memory-game
+	url = git@github.com:robiningelbrecht/pokemon-memory-game.git
