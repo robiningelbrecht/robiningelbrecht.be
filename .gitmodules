@@ -22,3 +22,6 @@
 [submodule "projects/pokemon-memory-game"]
 	path = projects/pokemon-memory-game
 	url = git@github.com:robiningelbrecht/pokemon-memory-game.git
+[submodule "projects/drupal-dev-days-2022"]
+	path = projects/drupal-dev-days-2022
+	url = git@github.com:robiningelbrecht/drupal-dev-days-2022.git
