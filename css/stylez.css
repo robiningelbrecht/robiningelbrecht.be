@@ -450,7 +450,8 @@ html {
 }
 
 .col--3 {
-    --ifm-col-width: 20%
+    --ifm-col-width: 20%;
+    margin-bottom: 20px;
 }
 
 .col--4 {
