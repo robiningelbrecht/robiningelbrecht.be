@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Domain\GitHub;
+use App\Domain\MediumRss;
 use App\Infrastructure\Environment\Settings;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -15,7 +16,8 @@ class BuildConsoleCommand extends Command
 {
     public function __construct(
         private readonly Environment $twig,
-        private readonly GitHub $gitHub
+        private readonly GitHub $gitHub,
+        private readonly MediumRss $mediumRss,
     ) {
         parent::__construct();
     }
@@ -25,8 +27,11 @@ class BuildConsoleCommand extends Command
         $pathToBuildDir = Settings::getAppRoot().'/build';
 
         $repos = $this->gitHub->getRepos();
+        $blogPosts = $this->mediumRss->getFeed();
+
         $template = $this->twig->load('index.html.twig');
         \Safe\file_put_contents($pathToBuildDir.'/index.html', $template->render([
+            'blogPosts'=> array_slice($blogPosts, 0, 4),
             'repos' => array_map(fn (array $repo) => [
                 'name' => $repo['name'],
                 'description' => $repo['description'],

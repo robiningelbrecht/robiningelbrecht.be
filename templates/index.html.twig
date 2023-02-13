@@ -90,64 +90,17 @@
                                 Latest blog posts
                             </h2>
                             <div class="blog-posts">
-                                <div class="blog-post">
-                                    <img src="https://miro.medium.com/v2/resize:fit:1400/0*3r8vGx5CDfHOgl-X"/>
-                                    <div class="right">
-                                        <a href="https://ingelbrechtrobin.medium.com/a-list-of-easy-to-achieve-playstation-platinum-trophies-aa4f4f8b03d5?source=rss-45b70a6f6d97------2"
-                                           target="_blank"><h3>A list of easy-to-achieve PlayStation platinum
-                                                trophies</h3></a>
-                                        <small>Tue Dec 20 2022, 18:51</small>
-                                        <p>A PlayStation platinum trophy is the highest level of trophy that a player
-                                            can earn in a Playstation video game. It is awarded for earning all of the
-                                            other trophies within a game, including gold, silver, and bronze trophies.
-                                            Platinum trophies are typically considered to be the ultimate goal for
-                                            trophy hunters, as they represent the completion of every challenge and
-                                            achievement within a game. Earning a platinum trophy requires a significant
-                                            time investment and a high level of skill and dedication.</p>
+                                {% for blogPost in blogPosts %}
+                                    <div class="blog-post">
+                                        <img src="{{ blogPost.getImage() }}"/>
+                                        <div class="right">
+                                            <a href="{{ blogPost.getLink() }}"
+                                               target="_blank"><h3>{{ blogPost.getTitle()|raw }}</h3></a>
+                                            <small>{{ blogPost.getPubDate().format('D M d Y, H:i') }}</small>
+                                            <p>{{ blogPost.getSummary()|raw }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="blog-post">
-                                    <img src="https://miro.medium.com/max/1400/0*rxJ6JjPuak80mocx"/>
-                                    <div class="right">
-                                        <a href="https://blog.devops.dev/gracefully-killing-your-rabbitmq-consumers-2f0ab48a1e7f?source=user_profile---------1----------------------------"
-                                           target="_blank"><h3>Gracefully killing your RabbitMQ consumers</h3></a>
-                                        <small>Tue Nov 29 2022, 10:37</small>
-                                        <p>If your application relies on AMQP, you most likely are using multiple
-                                            consumers and workers to process data and commands. Each of these consumers
-                                            has to be restarted every time you deploy new code to any of your
-                                            environments to make sure they are “working” with the latest version of your
-                                            code. Killing and restarting consumers is easy, but what if a consumer is in
-                                            the middle of processing a message…?</p>
-                                    </div>
-                                </div>
-                                <div class="blog-post">
-                                    <img src="https://miro.medium.com/max/1400/0*owrUx95bIxZWk6Mb"/>
-                                    <div class="right">
-                                        <a href="https://ingelbrechtrobin.medium.com/how-i-got-to-solving-the-rubiks-cube-in-sub-60-seconds-consistently-1442ce7ea08e"
-                                           target="_blank"><h3>How I got to solving the Rubik’s cube in sub 60 seconds
-                                                consistently</h3></a>
-                                        <small>Fri Nov 4 2022, 14:35</small>
-                                        <p>I’m one of those weird people that aren’t happy with being able to solve a
-                                            Rubik’s cube, no, I need to be able to solve it as fast as possible. The art
-                                            of doing this is called “Speedcubing”. There’s even an official association
-                                            that organizes competitions and keeps rankings.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="blog-post">
-                                    <img src="https://miro.medium.com/v2/resize:fit:1400/0*-EO4_IOgQErrBY1-"/>
-                                    <div class="right">
-                                        <a href="https://ingelbrechtrobin.medium.com/i-created-a-service-that-can-render-you-a-rubiks-cube-7a276aeb9834"
-                                           target="_blank"><h3>I created a service that can render you a Rubik’s
-                                                cube</h3></a>
-                                        <small>Tue Nov 1 2022, 17:37</small>
-                                        <p>A few weeks ago I bought myself a Rubik’s cube and I’ve been fascinated by it
-                                            since then. Because of this, (and maybe because I’m a developer as well) I
-                                            wanted to create a tool to render the magical Rubik’s cube as an SVG image
-                                            🤓.
-                                        </p>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                             <h2>
                                 <svg width="28" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
