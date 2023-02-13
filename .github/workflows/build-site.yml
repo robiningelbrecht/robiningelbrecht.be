@@ -22,11 +22,7 @@ jobs:
       - name: Build site
         run: |
           composer install --prefer-dist
-        
-          bin/console app:card:generate
           
-          cd ..
-          composer install --prefer-dist
           bin/console app:build:site
       - name: Commit and push changes
         run: |
