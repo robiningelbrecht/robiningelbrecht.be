@@ -1290,7 +1290,6 @@ ul.details{
 .repo .stars{
     display: flex;
     align-items: center;
-    gap: 2px;
     font-size: 14px;
 }
 
