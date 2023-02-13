@@ -13,27 +13,25 @@ class RssItem
 
     public function __construct(
         \SimpleXMLElement $item,
-    )
-    {
-
+    ) {
         $this->title = $item->title;
         $this->link = $item->link;
         $this->pubDate = \DateTimeImmutable::createFromFormat('D, d M Y H:i:s e', $item->pubDate);
         $this->creator = $item->children('dc', true)->creator;
 
-        $content = (string)$item->children('http://purl.org/rss/1.0/modules/content/')->encoded;
+        $content = (string) $item->children('http://purl.org/rss/1.0/modules/content/')->encoded;
         $this->image = $this->extractImageSource($content);
         $this->summary = $this->extractSummary($content);
     }
 
     public function getTitle(): string
     {
-        return (string)$this->title;
+        return (string) $this->title;
     }
 
     public function getLink(): string
     {
-        return (string)$this->link;
+        return (string) $this->link;
     }
 
     public function getPubDate(): \DateTimeImmutable
@@ -43,7 +41,7 @@ class RssItem
 
     public function getCreator(): string
     {
-        return (string)$this->creator;
+        return (string) $this->creator;
     }
 
     public function getImage(): string

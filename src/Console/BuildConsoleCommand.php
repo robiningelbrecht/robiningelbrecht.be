@@ -31,7 +31,7 @@ class BuildConsoleCommand extends Command
 
         $template = $this->twig->load('index.html.twig');
         \Safe\file_put_contents($pathToBuildDir.'/index.html', $template->render([
-            'blogPosts'=> array_slice($blogPosts, 0, 4),
+            'blogPosts' => array_slice($blogPosts, 0, 4),
             'repos' => array_map(fn (array $repo) => [
                 'name' => $repo['name'],
                 'description' => $repo['description'],

@@ -2,15 +2,13 @@
 
 namespace App\Domain;
 
-use App\Infrastructure\Serialization\Json;
 use GuzzleHttp\Client;
 
 class MediumRss
 {
     public function __construct(
         private readonly Client $client,
-    )
-    {
+    ) {
     }
 
     private function request(

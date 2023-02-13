@@ -9,8 +9,7 @@ class GitHub
 {
     public function __construct(
         private readonly Client $client,
-    )
-    {
+    ) {
     }
 
     private function request(
@@ -30,11 +29,12 @@ class GitHub
     {
         $repos = array_filter(
             $this->request('users/robiningelbrecht/repos'),
-            fn(array $repo) => in_array('website', $repo['topics'])
+            fn (array $repo) => in_array('website', $repo['topics'])
         );
 
         $repos = array_map(function (array $repo) {
-            $repo['topics'] = array_filter($repo['topics'], fn(string $topic) => $topic !== 'website');
+            $repo['topics'] = array_filter($repo['topics'], fn (string $topic) => 'website' !== $topic);
+
             return $repo;
         }, $repos);
 
