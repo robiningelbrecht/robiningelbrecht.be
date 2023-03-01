@@ -1243,7 +1243,7 @@ ul.details{
 }
 
 .blog-post img{
-    width: 170px;
+    width: 140px;
     height: 110px;
     object-fit: cover;
 }
@@ -1254,7 +1254,8 @@ ul.details{
     flex: 1;
 }
 
-.blog-post .right h3{
+.blog-post .right h3,
+.blog-post .right h4{
     margin-bottom: 0;
 }
 
@@ -1275,6 +1276,7 @@ ul.details{
 }
 
 .blog-post .right h3,
+.blog-post .right h4,
 .repo h3{
     white-space: nowrap;
     overflow: hidden;

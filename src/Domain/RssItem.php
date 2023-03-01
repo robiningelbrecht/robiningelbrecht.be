@@ -68,13 +68,16 @@ class RssItem
 
     private function extractSummary($content): ?string
     {
-        $regex = '#<p>(.*?)</p>#';
-        preg_match($regex, $content, $matches);
+        preg_match_all('/<p>(.*?)<\/p>/', $content, $matches);
 
-        if (empty($matches[1])) {
+        if (empty($matches[1][0])) {
             return null;
         }
+        $content = $matches[1][0];
+        if (strlen(strip_tags($content)) < 20 && isset($matches[1][1])) {
+            $content = $matches[1][1];
+        }
 
-        return strip_tags($matches[1]);
+        return strip_tags($content);
     }
 }
