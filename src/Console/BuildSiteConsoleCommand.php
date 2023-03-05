@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Twig\Environment;
 
 #[AsCommand(name: 'app:build:site', description: 'Build site')]
-class BuildConsoleCommand extends Command
+class BuildSiteConsoleCommand extends Command
 {
     public function __construct(
         private readonly Environment $twig,

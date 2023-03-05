@@ -27,21 +27,11 @@ class GitHub
 
     public function getRepos(): array
     {
-        $repos = array_filter(
-            $this->request('users/robiningelbrecht/repos'),
-            fn (array $repo) => in_array('website', $repo['topics'])
+        $response = $this->client->request(
+            'GET',
+            'https://raw.githubusercontent.com/robiningelbrecht/github-commit-history/master/build/repos-for-website.json'
         );
 
-        $repos = array_map(function (array $repo) {
-            $repo['topics'] = array_filter($repo['topics'], fn (string $topic) => 'website' !== $topic);
-
-            return $repo;
-        }, $repos);
-
-        usort($repos, function (array $a, array $b) {
-            return (new \DateTimeImmutable($a['created_at']))->getTimestamp() < (new \DateTimeImmutable($b['created_at']))->getTimestamp() ? 1 : -1;
-        });
-
-        return $repos;
+        return Json::decode($response->getBody()->getContents());
     }
 }
