@@ -2,7 +2,7 @@ name: Build site
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '30 12 * * *'
+    - cron:  '30 22 * * *'
 jobs:
   build-site:
     name: Generate a new card
