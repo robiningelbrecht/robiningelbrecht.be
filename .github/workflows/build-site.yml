@@ -5,7 +5,7 @@ on:
     - cron:  '30 22 * * *'
 jobs:
   build-site:
-    name: Generate a new card
+    name: Build site
     runs-on: ubuntu-latest
     steps:
       # https://github.com/marketplace/actions/setup-php-action
