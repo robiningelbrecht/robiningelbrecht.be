@@ -1295,3 +1295,57 @@ ul.details{
     font-size: 14px;
 }
 
+.commit-info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.commit-info > div{
+    border: 1px solid var(--ifm-color-emphasis-400);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.progress-bars .title{
+    font-weight: bold;
+}
+
+.progress-bars .progress-bar{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.progress-bars .progress-bar .label{
+    width: 100px;
+}
+
+.progress-bars .progress-bar .description{
+    width: 130px;
+    font-size: smaller;
+}
+
+.progress-bars .progress-bar .progress{
+    flex: 1;
+    max-width: 500px;
+    height: 20px;
+    background-image: url('../assets/progress.png');
+    background-size: 20px;
+}
+
+.progress-bars .progress-bar .progress .progress-fill{
+    height: 100%;
+    background:var(--ifm-font-color-base);
+}
+
+.progress-bars .progress-bar .percentage{
+    width: 55px;
+    font-size: smaller;
+}
+
+.recent-commits .title{
+    font-weight: bold;
+}
+
