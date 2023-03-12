@@ -1312,6 +1312,10 @@ ul.details{
     font-weight: bold;
 }
 
+.progress-bars .inner{
+    overflow-x: scroll;
+}
+
 .progress-bars .progress-bar{
     display: flex;
     align-items: center;
@@ -1319,17 +1323,20 @@ ul.details{
 }
 
 .progress-bars .progress-bar .label{
-    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
 }
 
 .progress-bars .progress-bar .description{
-    width: 130px;
+    min-width: 120px;
+    max-width: 120px;
     font-size: smaller;
 }
 
 .progress-bars .progress-bar .progress{
     flex: 1;
     max-width: 500px;
+    min-width: 200px;
     height: 20px;
     background-image: url('../assets/progress.png');
     background-size: 20px;
@@ -1341,7 +1348,8 @@ ul.details{
 }
 
 .progress-bars .progress-bar .percentage{
-    width: 55px;
+    min-width: 55px;
+    max-width: 55px;
     font-size: smaller;
 }
 
