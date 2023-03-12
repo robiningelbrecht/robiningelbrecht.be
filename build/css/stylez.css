@@ -1310,6 +1310,7 @@ ul.details{
 
 .progress-bars .title{
     font-weight: bold;
+    margin-bottom: 6px;
 }
 
 .progress-bars .inner{
