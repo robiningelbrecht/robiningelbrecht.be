@@ -135,7 +135,9 @@
                                         <a href="{{ repo.url }}"
                                            target="_blank"><h3>{{ repo.name }}</h3></a>
                                         <div class="meta">
-                                            <code>{{ repo.language|upper }}</code>
+                                            {% if repo.language %}
+                                                <code>{{ repo.language|upper }}</code>
+                                            {% endif %}
                                             {% for topic in repo.topics %}
                                                 <code>{{ topic|upper }}</code>
                                             {% endfor %}
