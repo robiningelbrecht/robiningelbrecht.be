@@ -1289,6 +1289,12 @@ ul.details{
     gap: 5px;
 }
 
+.repo .meta code{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .repo .stars{
     display: flex;
     align-items: center;
