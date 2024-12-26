@@ -18,21 +18,22 @@ class BuildSiteConsoleCommand extends Command
         private readonly Environment $twig,
         private readonly GitHub $gitHub,
         private readonly MediumRss $mediumRss,
-    ) {
+    )
+    {
         parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $pathToBuildDir = Settings::getAppRoot().'/build';
+        $pathToBuildDir = Settings::getAppRoot() . '/build';
 
         $repos = $this->gitHub->getRepos();
         $blogPosts = $this->mediumRss->getFeed();
 
         $template = $this->twig->load('index.html.twig');
-        \Safe\file_put_contents($pathToBuildDir.'/index.html', $template->render([
-            'blogPosts' => $blogPosts,
-            'repos' => array_map(fn (array $repo) => [
+        \Safe\file_put_contents($pathToBuildDir . '/index.html', $template->render([
+            'blogPosts' => array_slice($blogPosts, 0, 8),
+            'repos' => array_map(fn(array $repo) => [
                 'name' => $repo['name'],
                 'description' => $repo['description'],
                 'language' => $repo['language'],

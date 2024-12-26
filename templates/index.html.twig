@@ -8,44 +8,53 @@
     <title>Developer | Robin Ingelbrecht</title>
 
     <!-- HTML Meta Tags -->
-    <meta name="description" content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
+    <meta name="description"
+          content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
     <meta name="author" content="Robin Ingelbrecht | Developer">
     <meta name="designer" content="Robin Ingelbrecht | Developer">
     <meta name="publisher" content="Robin Ingelbrecht | Developer">
 
     <!-- Google / Search Engine Tags -->
     <meta itemprop="name" content="Robin Ingelbrecht | Developer">
-    <meta itemprop="description" content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
+    <meta itemprop="description"
+          content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
     <meta itemprop="image" content="http://robiningelbrecht.be/assets/logo.png">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://robiningelbrecht.be">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Robin Ingelbrecht | Developer">
-    <meta property="og:description" content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
+    <meta property="og:description"
+          content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
     <meta property="og:image" content="http://robiningelbrecht.be/assets/logo.png">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Robin Ingelbrecht | Developer">
-    <meta name="twitter:description" content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
+    <meta name="twitter:description"
+          content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
     <meta name="twitter:image" content="http://robiningelbrecht.be/assets/logo.png">
 
     <link href="assets/favicon.png" rel="icon" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body class="font-display font-normal text-base">
+<body class="font-display font-normal text-primary">
 <nav class="absolute py-8 top-0 left-0 w-full z-50 bg-none text-white">
     <div class="container flex justify-between items-center">
-        <a href="#" class="text-xl font-extrabold uppercase tracking-wide">Robin</a>
+        <a href="#home" class="flex items-center gap-x-2 text-xl font-extrabold uppercase tracking-wide">
+            <img src="assets/logo.png" class="rounded-full w-[28px] " alt="logo">
+            <span>Robin</span>
+        </a>
         <ul class="nav hidden sm:flex gap-x-10">
             <li><a href="#home" class="nav-link">Home</a></li>
             <li><a href="#blog" class="nav-link">Blog</a></li>
@@ -53,75 +62,83 @@
         </ul>
     </div>
 </nav>
-<header id="home" class="text-white flex items-center h-screen bg-cover bg-[top_center] relative overflow-hidden" style="background-image: url(assets/bg.jpg);">
-    <div class="w-full text-center z-20">
-        <h5>Hello there!</h5>
-        <div class="typed-strings">
+<header id="home" class="text-white flex items-center h-screen bg-cover bg-[top_center] relative overflow-hidden"
+        style="background-image: url(assets/bg.jpg);">
+    <div class="w-full mx-4 text-center z-20">
+        <h2 class="text-[30px] md:text-[50px] mb-2.5">Hello there!</h2>
+        <div class="typed-strings hidden">
             <p>Robin Ingelbrecht</p>
             <p>a dad</p>
             <p>a developer</p>
             <p>an open source enthusiast</p>
             <p>an amateur cyclist</p>
         </div>
-        <h1>I am <b class="typed"></b></h1>
-        <div>
-            <a href="https://github.com/robiningelbrecht">
-                <span><i class="fa fa-github" aria-hidden="true"></i></span>
-            </a>
-            <a href="https://www.linkedin.com/in/robin-ingelbrecht/">
-                <span><i class="fa fa-linkedin" aria-hidden="true"></i></span>
-            </a>
-            <a href="https://ingelbrechtrobin.medium.com/">
-                <span><i class="fa fa-medium" aria-hidden="true"></i></span>
-            </a>
-        </div>
+        <h1 class="font-extralight text-base sm:text-[30px] sm:leading-[36px] md:text-[44px] md:leading-[50px] lg:text-[60px] lg:leading-[66px]">
+            I am <b class="typed"></b>
+        </h1>
+        <ul class="mt-7 flex justify-self-center gap-x-1">
+            <li>
+                <a href="https://github.com/robiningelbrecht">
+                    <span>
+                        <i class="fa fa-github rounded-full bg-[rgba(255,_255,_255,_0.3)] w-[35px] h-[35px] leading-[35px]"
+                           aria-hidden="true"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/robin-ingelbrecht/">
+                    <span>
+                        <i class="fa fa-linkedin rounded-full bg-[rgba(255,_255,_255,_0.3)] w-[35px] h-[35px] leading-[35px]"
+                           aria-hidden="true"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ingelbrechtrobin.medium.com/">
+                    <span>
+                        <i class="fa fa-medium rounded-full bg-[rgba(255,_255,_255,_0.3)] w-[35px] h-[35px] leading-[35px]"
+                           aria-hidden="true"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
     </div>
 </header>
 
-<section id="blog">
+<section id="blog" class="py-24">
     <div class="container">
-        <div class="row">
-
-            <!-- section heading -->
-            <div class="section-head">
-                <h3>Latest blog posts.</h3>
-            </div>
-
-            <div class="row">
-                {% for blogPost in blogPosts %}
-                    <div class="blog-post">
-                        <img src="{{ blogPost.getImage() }}"/>
-                        <div class="content">
-                            <h6 class="tag">
-                                <a href="#0">{{ blogPost.getPubDate().format('D M d Y, H:i') }}</a>
-                            </h6>
-                            <h4>
-                                <a href="{{ blogPost.getLink() }}">{{ blogPost.getTitle()|raw }}</a>
-                            </h4>
-                            <span class="more">
-										<a href="{{ blogPost.getLink() }}">Read More</a>
-									</span>
-                        </div>
+        <h3>Latest blog posts.</h3>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
+            {% for blogPost in blogPosts %}
+                <div class="shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
+                    <div class="overflow-hidden">
+                        <img class="w-full h-[170px] object-cover transition-all duration-500 hover:scale-125"
+                             src="{{ blogPost.getImage() }}"/>
                     </div>
-                {% endfor %}
-            </div>
-
-        </div><!-- /row -->
-    </div><!-- /container -->
-</section>
-<section id="projects">
-    <div class="container">
-
-        <!-- section heading -->
-        <div class="section-head">
-            <h3>Projects.</h3>
+                    <div class="my-5 mx-4">
+                        <div class="mb-2.5 text-sm font-semibold text-light-grey">
+                            {{ blogPost.getPubDate().format('D M d Y, H:i') }}
+                        </div>
+                        <h4 class="mb-3 h-[67px] overflow-hidden">
+                            <a href="{{ blogPost.getLink() }}">{{ blogPost.getTitle()|raw }}</a>
+                        </h4>
+                        <span class="text-base border-b-2 border-primary">
+                            <a href="{{ blogPost.getLink() }}">Read More</a>
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
+    </div>
+</section>
+<section id="projects" class="bg-alternate py-24">
+    <div class="container">
+        <h3>Projects.</h3>
 
         <div class="row">
             {% for repo in repos %}
                 <div class="repo">
-                    <a href="{{ repo.url }}"
-                       target="_blank"><h3>{{ repo.name }}</h3></a>
+                    <a href="{{ repo.url }}"><h4>{{ repo.name }}</h4></a>
                     <div class="meta">
                         {% if repo.language %}
                             <code>{{ repo.language|upper }}</code>
@@ -145,13 +162,13 @@
         </div><!-- /row -->
     </div><!-- /container -->
 </section>
-<footer>
+<footer class="h-12 bg-primary">
 
 </footer>
 
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
-    window.addEventListener('load', function(event) {
+    window.addEventListener('load', function (event) {
         new Typed('.typed', {
             stringsElement: '.typed-strings',
             loop: true,
@@ -168,7 +185,7 @@
         // Add scroll event listener
         window.addEventListener("scroll", function () {
             const bodyScroll = window.scrollY;
-            if (bodyScroll > 100) {
+            if (bodyScroll > 96) {
                 navbar.classList.add("nav-scroll");
             } else {
                 navbar.classList.remove("nav-scroll");
