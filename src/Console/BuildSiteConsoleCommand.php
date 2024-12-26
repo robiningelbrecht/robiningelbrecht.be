@@ -29,13 +29,9 @@ class BuildSiteConsoleCommand extends Command
         $repos = $this->gitHub->getRepos();
         $blogPosts = $this->mediumRss->getFeed();
 
-        $dayTimeSummary = file_get_contents('https://raw.githubusercontent.com/robiningelbrecht/github-commit-history/master/build/html/commit-history-day-time-summary.html');
-        $weekDaySummary = file_get_contents('https://raw.githubusercontent.com/robiningelbrecht/github-commit-history/master/build/html/commit-history-week-day-summary.html');
-        $mostRecentCommitsSummary = file_get_contents('https://raw.githubusercontent.com/robiningelbrecht/github-commit-history/master/build/html/most-recent-commits.html');
-
         $template = $this->twig->load('index.html.twig');
         \Safe\file_put_contents($pathToBuildDir.'/index.html', $template->render([
-            'blogPosts' => array_slice($blogPosts, 0, 4),
+            'blogPosts' => $blogPosts,
             'repos' => array_map(fn (array $repo) => [
                 'name' => $repo['name'],
                 'description' => $repo['description'],
@@ -44,11 +40,6 @@ class BuildSiteConsoleCommand extends Command
                 'stars' => $repo['stargazers_count'],
                 'url' => $repo['html_url'],
             ], $repos),
-            'commits' => [
-                'dayTimeSummary' => $dayTimeSummary,
-                'weekDaySummary' => $weekDaySummary,
-                'mostRecentCommitsSummary' => $mostRecentCommitsSummary,
-            ],
         ]));
 
         return Command::SUCCESS;

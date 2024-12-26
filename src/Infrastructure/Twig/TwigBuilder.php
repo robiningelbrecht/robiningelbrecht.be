@@ -9,7 +9,7 @@ use Twig\TwigFunction;
 class TwigBuilder
 {
     public function __construct(
-        private readonly FilesystemLoader $filesystemLoader
+        private readonly FilesystemLoader $filesystemLoader,
     ) {
     }
 
