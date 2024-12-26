@@ -64,7 +64,7 @@
 </nav>
 <header id="home" class="text-white flex items-center h-screen bg-cover bg-[top_center] relative overflow-hidden"
         style="background-image: url(assets/bg.jpg);">
-    <div class="w-full mx-4 text-center z-20">
+    <div class="flex flex-col items-center w-full mx-4 text-center z-20">
         <h2 class="text-[30px] md:text-[50px] mb-2.5">Hello there!</h2>
         <div class="typed-strings hidden">
             <p>Robin Ingelbrecht</p>
@@ -76,7 +76,7 @@
         <h1 class="font-extralight text-base sm:text-[30px] sm:leading-[36px] md:text-[44px] md:leading-[50px] lg:text-[60px] lg:leading-[66px]">
             I am <b class="typed"></b>
         </h1>
-        <ul class="mt-7 flex justify-self-center gap-x-1">
+        <ul class="mt-7 flex gap-x-1">
             <li>
                 <a href="https://github.com/robiningelbrecht">
                     <span>
@@ -395,7 +395,34 @@
                     </div>
     </div>
 </section>
-<footer class="h-12 bg-primary"></footer>
+<footer class="flex items-center justify-center bg-primary py-3">
+    <ul class="flex gap-x-2 text-center">
+        <li>
+            <a href="https://github.com/robiningelbrecht">
+                    <span>
+                        <i class="fa fa-github rounded-full bg-[rgba(255,_255,_255,_0.3)] w-[35px] h-[35px] leading-[35px]"
+                           aria-hidden="true"></i>
+                    </span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/robin-ingelbrecht/">
+                    <span>
+                        <i class="fa fa-linkedin rounded-full bg-[rgba(255,_255,_255,_0.3)] w-[35px] h-[35px] leading-[35px]"
+                           aria-hidden="true"></i>
+                    </span>
+            </a>
+        </li>
+        <li>
+            <a href="https://ingelbrechtrobin.medium.com/">
+                    <span>
+                        <i class="fa fa-medium rounded-full bg-[rgba(255,_255,_255,_0.3)] w-[35px] h-[35px] leading-[35px]"
+                           aria-hidden="true"></i>
+                    </span>
+            </a>
+        </li>
+    </ul>
+</footer>
 
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
