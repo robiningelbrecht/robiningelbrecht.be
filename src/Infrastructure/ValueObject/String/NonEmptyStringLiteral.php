@@ -24,7 +24,7 @@ abstract class NonEmptyStringLiteral implements \JsonSerializable, \Stringable, 
         return new static($string);
     }
 
-    public static function fromOptionalString(string $string = null): ?static
+    public static function fromOptionalString(?string $string = null): ?static
     {
         if (!$string) {
             return null;

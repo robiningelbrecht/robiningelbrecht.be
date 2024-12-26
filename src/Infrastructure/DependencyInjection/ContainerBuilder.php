@@ -22,7 +22,7 @@ class ContainerBuilder
     }
 
     /**
-     *  @param array<mixed>|string|DefinitionSource ...$definitions
+     * @param array<mixed>|string|DefinitionSource ...$definitions
      */
     public function addDefinitions(...$definitions): self
     {
@@ -34,7 +34,7 @@ class ContainerBuilder
     public function enableCompilation(
         string $directory,
         string $containerClass = 'CompiledContainer',
-        string $containerParentClass = CompiledContainer::class
+        string $containerParentClass = CompiledContainer::class,
     ): self {
         $this->containerBuilder->enableCompilation(
             $directory,
