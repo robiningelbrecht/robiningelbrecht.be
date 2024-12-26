@@ -21,13 +21,17 @@ module.exports = {
       '3xl': '26px',
       '4xl': '30px',
       '5xl': '34px',
+      '6xl': '38px',
     },
     extend: {
       fontFamily: {
-        "display": ['Poppins', 'sans-serif']
+        "display": ['Poppins', 'sans-serif'],
+        "alt": ['Montserrat', 'sans-serif']
       },
       colors: {
-        'base': '#343434',
+        'primary': '#343434',
+        'alternate': '#f7f7f7',
+        'light-grey': '#888888'
       },
     },
   },
