@@ -69,7 +69,7 @@
     </div>
 </nav>
 <header id="home" class="text-white flex items-center h-screen bg-cover bg-[top_center] relative overflow-hidden"
-        style="background-image: url(assets/bg.jpg);">
+        data-background="assets/bg.jpg" style="background-image: url(assets/bg-low-res.jpg);">
     <div class="flex flex-col items-center w-full mx-4 text-center z-20">
         <h2 class="text-[30px] md:text-[50px] mb-2.5">Hello there!</h2>
         <div class="typed-strings hidden">
@@ -258,146 +258,6 @@
     <div class="container">
         <h3>Projects.</h3>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-7">
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/strava-statistics">
-                        <h4>strava-statistics</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">78</span>
-                    </div>
-                    <p class="text-base text-light-grey">Self-hosted statistics generated using Strava data</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/symfony-skeleton">
-                        <h4>symfony-skeleton</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">1</span>
-                    </div>
-                    <p class="text-base text-light-grey">A Symfony skeleton I use to bootstrap new projects</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/wca-rest-api">
-                        <h4>wca-rest-api</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">17</span>
-                    </div>
-                    <p class="text-base text-light-grey">Unofficial World Cube Association (WCA) Public API</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/phpunit-coverage-tools">
-                        <h4>phpunit-coverage-tools</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">17</span>
-                    </div>
-                    <p class="text-base text-light-grey">A PHPUnit extension to enforce minimum code coverage by using the clover XML report</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/phpunit-pretty-print">
-                        <h4>phpunit-pretty-print</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">64</span>
-                    </div>
-                    <p class="text-base text-light-grey">Better PHPUnit CLI output with Collision</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/pokemon-card-generator">
-                        <h4>pokemon-card-generator</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">89</span>
-                    </div>
-                    <p class="text-base text-light-grey">A PHP app that generates Pokemon cards by using GPT and Stable Diffusion.</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/puzzle-generator">
-                        <h4>puzzle-generator</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">5</span>
-                    </div>
-                    <p class="text-base text-light-grey">Generate Full 3D pictures of a Rubiks cube</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/php-slim-skeleton">
-                        <h4>php-slim-skeleton</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">42</span>
-                    </div>
-                    <p class="text-base text-light-grey">An event-driven Slim 4 Framework skeleton using AMQP and CQRS</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/playstation-easy-platinums">
-                        <h4>playstation-easy-platinums</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">8</span>
-                    </div>
-                    <p class="text-base text-light-grey">This repository is a collection of easy and quick obtainable PlayStation platinum trophies</p>
-                </div>
-                            <div class="flex items-center flex-col bg-white px-5 py-9 text-center rounded-md shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <a class="mb-3.5" href="https://github.com/robiningelbrecht/continuous-integration-example">
-                        <h4>continuous-integration-example</h4>
-                    </a>
-                    <div class="flex items-center">
-                        <svg height="16" viewBox="0 0 16 16"
-                             width="16" data-view-component="true">
-                            <path fill-rule="evenodd" fill="#F1C300"
-                                  d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-sm">4</span>
-                    </div>
-                    <p class="text-base text-light-grey">This repository aims to build a fairly complete CI/CD example using GitHub workflows and actions.</p>
-                </div>
                     </div>
     </div>
 </section>
@@ -441,11 +301,7 @@
             backDelay: 2000,
         });
 
-        // Select elements
         const navbar = document.querySelector("nav");
-        const header = document.querySelector("header");
-        const h_height = header.offsetHeight;
-
         // Add scroll event listener
         window.addEventListener("scroll", function () {
             const bodyScroll = window.scrollY;
@@ -455,6 +311,14 @@
                 navbar.classList.remove("nav-scroll");
             }
         });
+
+        // Lazy load high def version of background.
+        const img = new Image();
+        const $elWithBackground = document.querySelector('[data-background]');
+        img.onload = () => {
+            $elWithBackground.style.backgroundImage = 'url(' + $elWithBackground.dataset.background + ')';
+        };
+        img.src = $elWithBackground.dataset.background;
     });
 </script>
 

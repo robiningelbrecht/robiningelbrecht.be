@@ -27,20 +27,20 @@ class BuildSiteConsoleCommand extends Command
     {
         $pathToBuildDir = Settings::getAppRoot() . '/build';
 
-        $repos = $this->gitHub->getRepos();
+        //$repos = $this->gitHub->getRepos();
         $blogPosts = $this->mediumRss->getFeed();
 
         $template = $this->twig->load('index.html.twig');
         \Safe\file_put_contents($pathToBuildDir . '/index.html', $template->render([
             'blogPosts' => array_slice($blogPosts, 0, 8),
-            'repos' => array_map(fn(array $repo) => [
+            /*'repos' => array_map(fn(array $repo) => [
                 'name' => $repo['name'],
                 'description' => $repo['description'],
                 'language' => $repo['language'],
                 'topics' => $repo['topics'],
                 'stars' => $repo['stargazers_count'],
                 'url' => $repo['html_url'],
-            ], $repos),
+            ], $repos),*/
         ]));
 
         return Command::SUCCESS;
