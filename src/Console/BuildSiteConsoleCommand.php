@@ -27,20 +27,36 @@ class BuildSiteConsoleCommand extends Command
     {
         $pathToBuildDir = Settings::getAppRoot() . '/build';
 
-        //$repos = $this->gitHub->getRepos();
+        $allGithubRepos = $this->gitHub->getUserRepos('robiningelbrecht');
         $blogPosts = $this->mediumRss->getFeed();
+
+        $reposToInclude = [
+            'strava-statistics',
+            'phpunit-pretty-print',
+            'phpunit-coverage-tools',
+            'symfony-skeleton',
+            'php-slim-skeleton',
+            'pokemon-card-generator',
+            'medium-rss-github',
+            'wca-rest-api',
+            'puzzle-generator',
+            'docker-browsershot',
+            'google-spreadsheets-improved-query',
+            'playstation-easy-platinums',
+            'continuous-integration-example',
+            'drupal-amqp-rabbitmq',
+        ];
 
         $template = $this->twig->load('index.html.twig');
         \Safe\file_put_contents($pathToBuildDir . '/index.html', $template->render([
             'blogPosts' => array_slice($blogPosts, 0, 8),
-            /*'repos' => array_map(fn(array $repo) => [
+            'repos' => array_map(fn(array $repo) => [
                 'name' => $repo['name'],
                 'description' => $repo['description'],
                 'language' => $repo['language'],
-                'topics' => $repo['topics'],
                 'stars' => $repo['stargazers_count'],
                 'url' => $repo['html_url'],
-            ], $repos),*/
+            ], array_map(fn(string $repoName) => current(array_filter($allGithubRepos, fn(array $githubRepo) => $githubRepo['name'] === $repoName)), $reposToInclude)),
         ]));
 
         return Command::SUCCESS;

@@ -4,6 +4,7 @@ namespace App\Domain;
 
 use App\Infrastructure\Serialization\Json;
 use GuzzleHttp\Client;
+use GuzzleHttp\RequestOptions;
 
 class GitHub
 {
@@ -25,13 +26,16 @@ class GitHub
         return Json::decode($response->getBody()->getContents());
     }
 
-    public function getRepos(): array
+    public function getUserRepos($user): array
     {
-        $response = $this->client->request(
+        return $this->request(
+            sprintf('users/%s/repos', $user),
             'GET',
-            'https://raw.githubusercontent.com/robiningelbrecht/github-commit-history/master/build/repos-for-website.json'
+            [
+                RequestOptions::QUERY=> [
+                    'per_page'=> 100,
+                ]
+            ],
         );
-
-        return Json::decode($response->getBody()->getContents());
     }
 }
