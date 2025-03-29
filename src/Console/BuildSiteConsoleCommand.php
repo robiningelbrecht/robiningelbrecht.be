@@ -31,7 +31,7 @@ class BuildSiteConsoleCommand extends Command
         $blogPosts = $this->mediumRss->getFeed();
 
         $reposToInclude = [
-            'strava-statistics',
+            'statistics-for-strava',
             'phpunit-pretty-print',
             'phpunit-coverage-tools',
             'symfony-skeleton',
