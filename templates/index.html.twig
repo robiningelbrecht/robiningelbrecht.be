@@ -119,8 +119,8 @@
         <h3>Latest blog posts.</h3>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
             {% for blogPost in blogPosts %}
-                <div class="shadow-[0px_10px_30px_-8px_rgba(0,_0,_0,_0.1)]">
-                    <div class="overflow-hidden">
+                <div class="rounded-md shadow-md">
+                    <div class="rounded-t-md overflow-hidden">
                         <img class="w-full h-[170px] object-cover transition-all duration-500 hover:scale-125"
                              src="{{ blogPost.getImage() }}"/>
                     </div>
