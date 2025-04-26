@@ -31,53 +31,40 @@ class BuildSiteConsoleCommand extends Command
         $allGithubRepos = $this->gitHub->getUserRepos('robiningelbrecht');
         $blogPosts = $this->mediumRss->getFeed();
 
+
         $reposToInclude = [
-            'phpunit-coverage-tools',
-            'symfony-skeleton',
-            'php-slim-skeleton',
-            'pokemon-card-generator',
-            'medium-rss-github',
-            'wca-rest-api',
-            'puzzle-generator',
-            'docker-browsershot',
-            'google-spreadsheets-improved-query',
-            'playstation-easy-platinums',
-            'continuous-integration-example',
-            'drupal-amqp-rabbitmq',
+            'statistics-for-strava' => 'https://raw.githubusercontent.com/robiningelbrecht/statistics-for-strava/refs/heads/master/public/assets/images/logo-square.svg',
+            'phpunit-pretty-print' => '/assets/repos/phpunit-pretty-print.png',
+            'phpunit-coverage-tools' => 'https://cdn-images-1.medium.com/max/1024/0*9S8ABCsl4jSg01ah.png',
+            'symfony-skeleton' => 'https://symfony.com/logos/symfony_black_03.png',
+            'php-slim-skeleton' => 'https://raw.githubusercontent.com/robiningelbrecht/php-slim-skeleton/master/readme/slim-new.webp',
+            'pokemon-card-generator' => 'https://github.com/robiningelbrecht/pokemon-card-generator/raw/master/readme/banner.png',
+            'wca-rest-api' => 'https://raw.githubusercontent.com/robiningelbrecht/wca-rest-api/master/docs/logo.png',
+            'medium-rss-github' => 'https://github.com/robiningelbrecht/medium-rss-github/raw/master/readme/medium.png',
+            'docker-browsershot' => 'https://spatie.be/packages/header/browsershot/html/light.webp',
+            'google-spreadsheets-improved-query' => '/assets/repos/google-spreadsheets.png',
+            'playstation-easy-platinums' => 'https://github.com/robiningelbrecht/playstation-easy-platinums/raw/master/assets/ps-logo.png',
+            'drupal-amqp-rabbitmq' => 'https://github.com/robiningelbrecht/drupal-amqp-rabbitmq/raw/master/readme/rabbitmq.png',
         ];
 
-        $highlightedReposToInclude = [
-            'statistics-for-strava',
-            'phpunit-pretty-print',
-        ];
+        $repos = [];
+        foreach ($reposToInclude as $repoName => $image) {
+            $githubRepo = current(array_filter($allGithubRepos, fn(array $githubRepo) => $repoName === $githubRepo['name']));
+
+            $repos[] = [
+                'name' => $repoName,
+                'description' => $githubRepo['description'],
+                'language' => $githubRepo['language'],
+                'stars' => $githubRepo['stargazers_count'],
+                'url' => $githubRepo['html_url'],
+                'image' => $image,
+            ];
+        }
 
         $template = $this->twig->load('index.html.twig');
         \Safe\file_put_contents($pathToBuildDir . '/index.html', $template->render([
             'blogPosts' => array_slice($blogPosts, 0, 8),
-            'highlightedRepos' => array_map(function (array $repo) {
-                $imageUrl = null;
-                if ($repo['name'] === 'statistics-for-strava') {
-                    $imageUrl = 'https://raw.githubusercontent.com/robiningelbrecht/statistics-for-strava/refs/heads/master/public/assets/images/logo-square.svg';
-                }
-                if ($repo['name'] === 'phpunit-pretty-print') {
-                    $imageUrl = 'https://cdn-images-1.medium.com/max/1024/0*9S8ABCsl4jSg01ah.png';
-                }
-                return [
-                    'name' => $repo['name'],
-                    'description' => $repo['description'],
-                    'language' => $repo['language'],
-                    'stars' => $repo['stargazers_count'],
-                    'url' => $repo['html_url'],
-                    'image' => $imageUrl,
-                ];
-            }, array_map(fn(string $repoName) => current(array_filter($allGithubRepos, fn(array $githubRepo) => $githubRepo['name'] === $repoName)), $highlightedReposToInclude)),
-            'repos' => array_map(fn(array $repo) => [
-                'name' => $repo['name'],
-                'description' => $repo['description'],
-                'language' => $repo['language'],
-                'stars' => $repo['stargazers_count'],
-                'url' => $repo['html_url'],
-            ], array_map(fn(string $repoName) => current(array_filter($allGithubRepos, fn(array $githubRepo) => $githubRepo['name'] === $repoName)), $reposToInclude)),
+            'repos' => $repos,
         ]));
 
         return Command::SUCCESS;
