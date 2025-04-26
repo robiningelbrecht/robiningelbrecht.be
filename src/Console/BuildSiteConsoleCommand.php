@@ -34,17 +34,17 @@ class BuildSiteConsoleCommand extends Command
 
         $reposToInclude = [
             'statistics-for-strava' => 'https://raw.githubusercontent.com/robiningelbrecht/statistics-for-strava/refs/heads/master/public/assets/images/logo-square.svg',
-            'phpunit-pretty-print' => 'https://robiningelbrecht.be/assets/repos/phpunit-pretty-print.png',
-            'phpunit-coverage-tools' => 'https://robiningelbrecht.be/assets/repos/phpunit-coverage.png',
-            'symfony-skeleton' => 'https://robiningelbrecht.be/assets/repos/symfony-skeleton.png',
-            'php-slim-skeleton' => 'https://robiningelbrecht.be/assets/repos/slim-skeleton.png',
-            'pokemon-card-generator' => 'https://robiningelbrecht.be/assets/repos/pokemon-card-generator.png',
-            'wca-rest-api' => 'https://robiningelbrecht.be/assets/repos/wca-rest-api.png',
-            'medium-rss-github' => 'https://robiningelbrecht.be/assets/repos/medium-rss-feed.png',
-            'docker-browsershot' => 'https://robiningelbrecht.be/assets/repos/browsershot.png',
-            'google-spreadsheets-improved-query' => 'https://robiningelbrecht.be/assets/repos/google-spreadsheets.png',
-            'playstation-easy-platinums' => 'https://github.com/robiningelbrecht/playstation-easy-platinums/raw/master/assets/ps-logo.png',
-            'drupal-amqp-rabbitmq' => 'https://github.com/robiningelbrecht/drupal-amqp-rabbitmq/raw/master/readme/rabbitmq.png',
+            'phpunit-pretty-print' => 'assets/repos/phpunit-pretty-print.png',
+            'phpunit-coverage-tools' => 'assets/repos/phpunit-coverage.png',
+            'symfony-skeleton' => 'assets/repos/symfony-skeleton.png',
+            'php-slim-skeleton' => 'assets/repos/slim-skeleton.png',
+            'pokemon-card-generator' => 'assets/repos/pokemon-card-generator.png',
+            'wca-rest-api' => 'assets/repos/wca-rest-api.png',
+            'medium-rss-github' => 'assets/repos/medium-rss-feed.png',
+            'docker-browsershot' => 'assets/repos/browsershot.png',
+            'google-spreadsheets-improved-query' => 'assets/repos/google-spreadsheets.png',
+            'playstation-easy-platinums' => 'assets/repos/playstation-trophies.png',
+            'drupal-amqp-rabbitmq' => 'assets/repos/drupal-rabbitmq.png',
         ];
 
         $repos = [];
