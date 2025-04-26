@@ -186,8 +186,8 @@
         <div class="grid lg:grid-cols-2 gap-7 mb-7">
             {% for repo in repos %}
                 <a href="{{ repo.url }}"
-                   class="h-48 flex items-center bg-white border border-gray-200 hover:bg-gray-100 rounded-lg shadow-sm">
-                    <div class="w-48 min-w-48 h-full overflow-hidden rounded-none rounded-l-lg">
+                   class="h-32 sm:h-48 flex items-center bg-white border border-gray-200 hover:bg-gray-100 rounded-lg shadow-sm">
+                    <div class="w-32 min-w-32 sm:w-48 sm:min-w-48 h-full overflow-hidden rounded-none rounded-l-lg">
                         <img class="object-cover w-full h-full"
                              src="{{ repo.image }}" alt="{{ repo.name }}">
                     </div>
