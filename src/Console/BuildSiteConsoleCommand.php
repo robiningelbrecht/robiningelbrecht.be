@@ -34,7 +34,7 @@ class BuildSiteConsoleCommand extends Command
 
         $reposToInclude = [
             'statistics-for-strava' => 'https://raw.githubusercontent.com/robiningelbrecht/statistics-for-strava/refs/heads/master/public/assets/images/logo-square.svg',
-            'phpunit-pretty-print' => '/assets/repos/phpunit-pretty-print.png',
+            'phpunit-pretty-print' => 'assets/repos/phpunit-pretty-print.png',
             'phpunit-coverage-tools' => 'https://cdn-images-1.medium.com/max/1024/0*9S8ABCsl4jSg01ah.png',
             'symfony-skeleton' => 'https://symfony.com/logos/symfony_black_03.png',
             'php-slim-skeleton' => 'https://raw.githubusercontent.com/robiningelbrecht/php-slim-skeleton/master/readme/slim-new.webp',
@@ -42,7 +42,7 @@ class BuildSiteConsoleCommand extends Command
             'wca-rest-api' => 'https://raw.githubusercontent.com/robiningelbrecht/wca-rest-api/master/docs/logo.png',
             'medium-rss-github' => 'https://github.com/robiningelbrecht/medium-rss-github/raw/master/readme/medium.png',
             'docker-browsershot' => 'https://spatie.be/packages/header/browsershot/html/light.webp',
-            'google-spreadsheets-improved-query' => '/assets/repos/google-spreadsheets.png',
+            'google-spreadsheets-improved-query' => 'assets/repos/google-spreadsheets.png',
             'playstation-easy-platinums' => 'https://github.com/robiningelbrecht/playstation-easy-platinums/raw/master/assets/ps-logo.png',
             'drupal-amqp-rabbitmq' => 'https://github.com/robiningelbrecht/drupal-amqp-rabbitmq/raw/master/readme/rabbitmq.png',
         ];
