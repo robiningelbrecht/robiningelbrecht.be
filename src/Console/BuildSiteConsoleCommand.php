@@ -41,8 +41,8 @@ class BuildSiteConsoleCommand extends Command
             'pokemon-card-generator' => 'https://robiningelbrecht.be/assets/repos/pokemon-card-generator.png',
             'wca-rest-api' => 'https://robiningelbrecht.be/assets/repos/wca-rest-api.png',
             'medium-rss-github' => 'https://robiningelbrecht.be/assets/repos/medium-rss-feed.png',
-            'docker-browsershot' => 'https://spatie.be/packages/header/browsershot/html/light.webp',
-            'google-spreadsheets-improved-query' => 'assets/repos/google-spreadsheets.png',
+            'docker-browsershot' => 'https://robiningelbrecht.be/assets/repos/browsershot.png',
+            'google-spreadsheets-improved-query' => 'https://robiningelbrecht.be/assets/repos/google-spreadsheets.png',
             'playstation-easy-platinums' => 'https://github.com/robiningelbrecht/playstation-easy-platinums/raw/master/assets/ps-logo.png',
             'drupal-amqp-rabbitmq' => 'https://github.com/robiningelbrecht/drupal-amqp-rabbitmq/raw/master/readme/rabbitmq.png',
         ];
