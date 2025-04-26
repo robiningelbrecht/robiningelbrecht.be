@@ -38,7 +38,7 @@ class BuildSiteConsoleCommand extends Command
             'phpunit-coverage-tools' => 'https://robiningelbrecht.be/assets/repos/phpunit-coverage.png',
             'symfony-skeleton' => 'https://robiningelbrecht.be/assets/repos/symfony-skeleton.png',
             'php-slim-skeleton' => 'https://robiningelbrecht.be/assets/repos/slim-skeleton.png',
-            'pokemon-card-generator' => 'https://github.com/robiningelbrecht/pokemon-card-generator/raw/master/readme/banner.png',
+            'pokemon-card-generator' => 'https://robiningelbrecht.be/assets/repos/pokemon-card-generator.png',
             'wca-rest-api' => 'https://raw.githubusercontent.com/robiningelbrecht/wca-rest-api/master/docs/logo.png',
             'medium-rss-github' => 'https://github.com/robiningelbrecht/medium-rss-github/raw/master/readme/medium.png',
             'docker-browsershot' => 'https://spatie.be/packages/header/browsershot/html/light.webp',
