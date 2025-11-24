@@ -12,14 +12,14 @@ class RssItem
     private string $summary;
 
     public function __construct(
-        \SimpleXMLElement $item,
+        array $item,
     ) {
-        $this->title = $item->title;
-        $this->link = $item->link;
-        $this->pubDate = \DateTimeImmutable::createFromFormat('D, d M Y H:i:s e', $item->pubDate);
-        $this->creator = $item->children('dc', true)->creator;
+        $this->title = $item['title'];
+        $this->link =  $item['link'];
+        $this->pubDate = \DateTimeImmutable::createFromFormat('Y-m-d H:i:s',  $item['pubDate']);
+        $this->creator = $item['author'];
 
-        $content = (string) $item->children('http://purl.org/rss/1.0/modules/content/')->encoded;
+        $content = $item['content'];
         $this->image = $this->extractImageSource($content);
         $this->summary = $this->extractSummary($content);
     }

@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # https://github.com/marketplace/actions/setup-php-action
-      - name: Setup PHP 8.2
+      - name: Setup PHP 8.4
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.4'
           extensions: json
 
       # https://github.com/marketplace/actions/checkout
@@ -32,11 +32,3 @@ jobs:
           git status
           git diff --staged --quiet || git commit -m"New site build"
           git push
-      - name: ntfy.sh
-        uses: robiningelbrecht/ntfy-action@v1.0.0
-        if: failure()
-        with:
-            url: ${{ secrets.NTFY_URL }}
-            topic: ${{ secrets.NTFY_TOPIC }}
-            icon: 'https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png'
-            job_status: ${{ job.status }}

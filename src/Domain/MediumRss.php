@@ -2,7 +2,9 @@
 
 namespace App\Domain;
 
+use App\Infrastructure\Serialization\Json;
 use GuzzleHttp\Client;
+use GuzzleHttp\RequestOptions;
 
 class MediumRss
 {
@@ -17,7 +19,11 @@ class MediumRss
         array $options = []): string
     {
         $options = array_merge([
-            'base_uri' => 'https://medium.com/',
+            RequestOptions::HEADERS => [
+                'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'User-Agent'=> 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36',
+            ],
+            'base_uri' => 'https://api.rss2json.com/',
         ], $options);
         $response = $this->client->request($method, $path, $options);
 
@@ -26,11 +32,11 @@ class MediumRss
 
     public function getFeed(): array
     {
-        $content = $this->request('feed/@ingelbrechtrobin');
-        $feed = new \SimpleXMLElement($content);
+        $feed = Json::decode($this->request('v1/api.json?rss_url=https://medium.com/feed/@ingelbrechtrobin'));
+
 
         $items = [];
-        foreach ($feed->channel->item as $item) {
+        foreach ($feed['items'] as $item) {
             $items[] = new RssItem($item);
         }
 
