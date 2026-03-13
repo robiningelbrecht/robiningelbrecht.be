@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Developer | Robin Ingelbrecht</title>
+<meta name="description" content="My name is Robin Ingelbrecht and I'm an open source (web) developer at heart and always try to up my game by challenging myself and those around me. Obviously, I'm also into gaming">
+<meta name="author" content="Robin Ingelbrecht | Developer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['Outfit', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        },
+        colors: {
+          cream: {
+            50:  '#faf9f7',
+            100: '#f2f0ec',
+            200: '#e8e5df',
+          },
+          brand: {
+            DEFAULT: '#4f46e5',
+            light:   '#6366f1',
+          }
+        },
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
+
+  /* Hero gradient overlay */
+  #home::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,12,0.30) 0%, rgba(10,10,12,0.50) 55%, rgba(10,10,12,0.98) 100%);
+    pointer-events: none;
+  }
+
+  /* Typed cursor */
+  .typed-cursor { animation: typedjsBlink 0.7s infinite; }
+  @keyframes typedjsBlink { 50% { opacity: 0; } }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* Nav on scroll */
+  nav.scrolled { background: rgba(250,249,247,0.93) !important; backdrop-filter: blur(20px); border-color: rgba(0,0,0,0.08) !important; }
+
+  /* Scroll hint line */
+  @keyframes scrollPulse { 0%,100%{opacity:.4;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(0.4)} }
+  .scroll-line { animation: scrollPulse 2s ease-in-out infinite; }
+
+  /* Blog card interactions */
+  .blog-card { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.09); border-color: rgba(0,0,0,0.14) !important; }
+  .blog-img { transition: transform 0.5s ease; }
+  .blog-card:hover .blog-img { transform: scale(1.05); }
+  .blog-card:hover .blog-title { color: #4f46e5; }
+  .read-arrow { transition: transform 0.2s ease; }
+  .blog-card:hover .read-arrow { transform: translateX(4px); }
+
+  /* Project card interactions */
+  .project-card { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+  .project-card:hover { transform: translateY(-3px); box-shadow: 0 0 0 1.5px #4f46e5, 0 8px 32px rgba(79,70,229,0.10); border-color: #4f46e5 !important; }
+  .project-img { transition: transform 0.4s ease; }
+  .project-card:hover .project-img { transform: scale(1.06); }
+  .project-card:hover .project-name { color: #4f46e5; }
+</style>
+</head>
+<body class="bg-cream-50 text-stone-900 font-display">
+
+<!-- ── NAV ── -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 py-5 border-b border-transparent transition-all duration-300">
+  <a href="#home" class="flex items-center gap-2.5 font-bold text-[15px] tracking-wide text-stone-900 no-underline">
+    <div class="w-8 h-8 rounded-full bg-brand flex items-center justify-center text-white text-[13px] font-bold shrink-0">RI</div>
+    <span>Robin</span>
+    <span class="flex items-center gap-1 text-[11px] font-normal text-stone-400">
+      <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.24 0 3 2.24 3 5c0 4.25 5 10 5 10s5-5.75 5-10c0-2.76-2.24-5-5-5zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg>
+      Bruges, Belgium
+    </span>
+  </a>
+  <ul class="hidden sm:flex gap-1 list-none">
+    <li><a href="#home"     class="text-[13px] font-medium px-4 py-1.5 rounded-full text-stone-500 hover:text-stone-900 hover:bg-cream-200 transition-colors duration-200">Home</a></li>
+    <li><a href="#blog"     class="text-[13px] font-medium px-4 py-1.5 rounded-full text-stone-500 hover:text-stone-900 hover:bg-cream-200 transition-colors duration-200">Blog</a></li>
+    <li><a href="#projects" class="text-[13px] font-medium px-4 py-1.5 rounded-full text-stone-500 hover:text-stone-900 hover:bg-cream-200 transition-colors duration-200">Projects</a></li>
+    <li><a href="https://resume.robiningelbrecht.be/" target="_blank" class="text-[13px] font-medium px-4 py-1.5 rounded-full text-stone-500 hover:text-stone-900 hover:bg-cream-200 transition-colors duration-200">Resume ↗</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO (original, preserved) ── -->
+<header id="home" class="relative flex items-center h-screen bg-cover bg-[top_center] overflow-hidden text-white"
+  style="background-image: url('https://robiningelbrecht.be/assets/bg.jpg');">
+  <div class="relative z-10 flex flex-col items-center w-full px-6 text-center">
+    <h2 class="text-3xl md:text-5xl mb-2.5 font-light">Hello there!</h2>
+    <div class="typed-strings" style="clip:rect(0,0,0,0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;">
+      <p>Robin Ingelbrecht</p>
+      <p>a dad</p>
+      <p>a developer</p>
+      <p>an open source enthusiast</p>
+      <p>an amateur cyclist</p>
+    </div>
+    <h1 class="font-extralight text-[28px] sm:text-[30px] sm:leading-9 md:text-[44px] md:leading-[50px] lg:text-[60px] lg:leading-[66px] mb-7">
+      I am <b class="typed font-bold">Robin Ing</b><span class="typed-cursor">|</span>
+    </h1>
+    <ul class="flex gap-1 list-none">
+      <li><a href="https://github.com/robiningelbrecht" title="GitHub" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/25 hover:bg-black/30 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/></svg>
+      </a></li>
+      <li><a href="https://www.linkedin.com/in/robin-ingelbrecht/" title="LinkedIn" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/25 hover:bg-black/30 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 32 32"><path d="M28.778 1.004h-25.56c-1.199 0-2.172.964-2.186 2.159v25.672c.014 1.196.987 2.161 2.186 2.161h25.555c1.2 0 2.175-.963 2.194-2.159v-25.67c-.019-1.197-.994-2.161-2.195-2.161zm-18.878 25.558h-4.454v-14.311h4.454v14.311zm-2.226-16.269c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579 2.579 1.154 2.579 2.578c0 1.423-1.154 2.577-2.577 2.577zm19.082 16.269h-4.441v-6.959c0-1.66-.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h.058c.828-1.395 2.326-2.315 4.039-2.315 4.5 0 5.332 2.962 5.332 6.817v7.855z"/></svg>
+      </a></li>
+      <li><a href="https://ingelbrechtrobin.medium.com/" title="Medium" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/25 hover:bg-black/30 transition-colors duration-200">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 12C13 15.31 10.31 18 7 18C3.69 18 1 15.31 1 12C1 8.69 3.69 6 7 6C10.31 6 13 8.69 13 12ZM23 12C23 14.76 22.55 17 22 17C21.45 17 21 14.76 21 12C21 9.24 21.45 7 22 7C22.55 7 23 9.24 23 12ZM17 18C18.66 18 20 15.31 20 12C20 8.69 18.66 6 17 6C15.34 6 14 8.69 14 12C14 15.31 15.34 18 17 18Z"/></svg>
+      </a></li>
+      <li><a href="https://www.strava.com/athletes/62214940" title="Strava" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/25 hover:bg-black/30 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 32 32"><path d="M20.516 23.927l-2.786-5.49h-4.083l6.87 13.563 6.865-13.563h-4.083zM13.953 10.974l3.781 7.464h5.563l-9.344-18.438-9.333 18.438h5.557z"/></svg>
+      </a></li>
+    </ul>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 text-[10px] tracking-[0.2em] uppercase font-mono z-10">
+    scroll
+    <div class="scroll-line w-px h-10 bg-gradient-to-b from-white/40 to-transparent"></div>
+  </div>
+</header>
+
+<!-- ── BLOG ── -->
+<section id="blog" class="py-24 bg-cream-50">
+  <div class="max-w-6xl mx-auto px-12">
+    <p class="reveal flex items-center gap-3 font-mono text-[11px] tracking-[0.15em] uppercase text-brand mb-3">
+      <span class="w-5 h-px bg-brand inline-block"></span>Latest posts
+    </p>
+    <h2 class="reveal text-5xl font-extrabold tracking-tight text-stone-900 mb-14">From the blog.</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+
+      <a class="blog-card reveal flex flex-col rounded-2xl overflow-hidden bg-white border border-black/[0.07] no-underline text-inherit" href="https://ingelbrechtrobin.medium.com/adding-intensity-to-zone-2-my-weekly-zwift-training-plan-bc1b9f9185d3">
+        <div class="overflow-hidden h-44">
+          <img class="blog-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/blog/1_aRmaRGyeD5L0UCGQFjy40Q.png" alt="" loading="lazy"></div>
+        <div class="flex flex-col flex-1 p-5">
+          <p class="font-mono text-[11px] text-stone-400 mb-2">Wed Feb 18 2026</p>
+          <h4 class="blog-title flex-1 text-[15px] font-semibold leading-snug text-stone-900 mb-4 line-clamp-3 transition-colors duration-200">Adding intensity to zone 2: my weekly Zwift training plan</h4>
+          <span class="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wide text-brand">Read more <svg class="read-arrow w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+
+      <a class="blog-card reveal flex flex-col rounded-2xl overflow-hidden bg-white border border-black/[0.07] no-underline text-inherit" href="https://ingelbrechtrobin.medium.com/embracing-immutability-in-php-8-5-with-the-new-clone-method-b1efa5d09376">
+        <div class="overflow-hidden h-44"><img class="blog-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/blog/1_yGJQghjGEmWRxzhINMmYdw.png" alt="" loading="lazy"></div>
+        <div class="flex flex-col flex-1 p-5">
+          <p class="font-mono text-[11px] text-stone-400 mb-2">Wed Feb 04 2026</p>
+          <h4 class="blog-title flex-1 text-[15px] font-semibold leading-snug text-stone-900 mb-4 line-clamp-3 transition-colors duration-200">Embracing immutability in PHP 8.5 with the new clone() method</h4>
+          <span class="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wide text-brand">Read more <svg class="read-arrow w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+
+      <a class="blog-card reveal flex flex-col rounded-2xl overflow-hidden bg-white border border-black/[0.07] no-underline text-inherit" href="https://ingelbrechtrobin.medium.com/one-year-of-statistics-for-strava-aec486385f46">
+        <div class="overflow-hidden h-44"><img class="blog-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/blog/1_VgeDbs0YrT9f7BCASuwDBg.png" alt="" loading="lazy"></div>
+        <div class="flex flex-col flex-1 p-5">
+          <p class="font-mono text-[11px] text-stone-400 mb-2">Mon Dec 15 2025</p>
+          <h4 class="blog-title flex-1 text-[15px] font-semibold leading-snug text-stone-900 mb-4 line-clamp-3 transition-colors duration-200">One year of Statistics for Strava</h4>
+          <span class="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wide text-brand">Read more <svg class="read-arrow w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+
+      <a class="blog-card reveal flex flex-col rounded-2xl overflow-hidden bg-white border border-black/[0.07] no-underline text-inherit" href="https://ingelbrechtrobin.medium.com/the-power-of-symfonys-service-container-a27499762415">
+        <div class="overflow-hidden h-44"><img class="blog-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/blog/1_e-w0SWp2OpdXq4NcJKXmuw.png" alt="" loading="lazy"></div>
+        <div class="flex flex-col flex-1 p-5">
+          <p class="font-mono text-[11px] text-stone-400 mb-2">Mon Dec 08 2025</p>
+          <h4 class="blog-title flex-1 text-[15px] font-semibold leading-snug text-stone-900 mb-4 line-clamp-3 transition-colors duration-200">The power of Symfony's service container</h4>
+          <span class="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wide text-brand">Read more <svg class="read-arrow w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+
+      <a class="blog-card reveal flex flex-col rounded-2xl overflow-hidden bg-white border border-black/[0.07] no-underline text-inherit" href="https://ingelbrechtrobin.medium.com/theres-no-place-like-127-0-0-1-7a21a500a0f8">
+        <div class="overflow-hidden h-44"><img class="blog-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/blog/1_4EOaw3jbke-vGNqkyU2jHg.png" alt="" loading="lazy"></div>
+        <div class="flex flex-col flex-1 p-5">
+          <p class="font-mono text-[11px] text-stone-400 mb-2">Sun Nov 23 2025</p>
+          <h4 class="blog-title flex-1 text-[15px] font-semibold leading-snug text-stone-900 mb-4 line-clamp-3 transition-colors duration-200">There's no place like 127.0.0.1</h4>
+          <span class="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wide text-brand">Read more <svg class="read-arrow w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+
+      <a class="blog-card reveal flex flex-col rounded-2xl overflow-hidden bg-white border border-black/[0.07] no-underline text-inherit" href="https://ingelbrechtrobin.medium.com/strategy-pattern-because-your-giant-if-statement-is-crying-for-help-48e979d9a399">
+        <div class="overflow-hidden h-44"><img class="blog-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/blog/0_7DZio5saypSPJMIr.png" alt="" loading="lazy"></div>
+        <div class="flex flex-col flex-1 p-5">
+          <p class="font-mono text-[11px] text-stone-400 mb-2">Mon May 12 2025</p>
+          <h4 class="blog-title flex-1 text-[15px] font-semibold leading-snug text-stone-900 mb-4 line-clamp-3 transition-colors duration-200">Strategy Pattern: Because Your Giant if Statement is Crying for Help</h4>
+          <span class="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wide text-brand">Read more <svg class="read-arrow w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+
+      <a class="blog-card reveal flex flex-col rounded-2xl overflow-hidden bg-white border border-black/[0.07] no-underline text-inherit" href="https://ingelbrechtrobin.medium.com/introducing-statistics-for-strava-an-open-source-app-that-analyses-your-strava-data-f1147e0d5c1e">
+        <div class="overflow-hidden h-44"><img class="blog-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/blog/1_Kz_eep3QI7oOkxR_Ori80Q.png" alt="" loading="lazy"></div>
+        <div class="flex flex-col flex-1 p-5">
+          <p class="font-mono text-[11px] text-stone-400 mb-2">Wed Mar 26 2025</p>
+          <h4 class="blog-title flex-1 text-[15px] font-semibold leading-snug text-stone-900 mb-4 line-clamp-3 transition-colors duration-200">Introducing "Statistics for Strava": A self-hosted, open-source dashboard for your Strava data.</h4>
+          <span class="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wide text-brand">Read more <svg class="read-arrow w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+
+      <a class="blog-card reveal flex flex-col rounded-2xl overflow-hidden bg-white border border-black/[0.07] no-underline text-inherit" href="https://ingelbrechtrobin.medium.com/transform-your-raspberry-pi-into-a-digital-photo-frame-09d053d4fb9b">
+        <div class="overflow-hidden h-44"><img class="blog-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/blog/0_HBzThCV7R12UcoAF.jpg" alt="" loading="lazy"></div>
+        <div class="flex flex-col flex-1 p-5">
+          <p class="font-mono text-[11px] text-stone-400 mb-2">Wed Oct 30 2024</p>
+          <h4 class="blog-title flex-1 text-[15px] font-semibold leading-snug text-stone-900 mb-4 line-clamp-3 transition-colors duration-200">Transform Your Raspberry Pi into a Digital Photo Frame</h4>
+          <span class="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wide text-brand">Read more <svg class="read-arrow w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects" class="py-24 bg-cream-100">
+  <div class="max-w-6xl mx-auto px-12">
+    <p class="reveal flex items-center gap-3 font-mono text-[11px] tracking-[0.15em] uppercase text-brand mb-3">
+      <span class="w-5 h-px bg-brand inline-block"></span>Open Source
+    </p>
+    <h2 class="reveal text-5xl font-extrabold tracking-tight text-stone-900 mb-14">Projects.</h2>
+    <div class="grid lg:grid-cols-2 gap-4">
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/statistics-for-strava" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/logo-square.svg" alt="statistics-for-strava"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">statistics-for-strava</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>1623</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Self-hosted, open-source dashboard for your Strava data.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/phpunit-pretty-print" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/phpunit-pretty-print.png" alt="phpunit-pretty-print"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">phpunit-pretty-print</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>76</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Better PHPUnit CLI output with Collision.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/phpunit-coverage-tools" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/phpunit-coverage.png" alt="phpunit-coverage-tools"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">phpunit-coverage-tools</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>17</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Enforce minimum code coverage via the clover XML report.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/pokemon-card-generator" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/pokemon-card-generator.png" alt="pokemon-card-generator"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">pokemon-card-generator</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>90</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">PHP app generating Pokémon cards using GPT & Stable Diffusion.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/php-slim-skeleton" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/slim-skeleton.png" alt="php-slim-skeleton"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">php-slim-skeleton</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>47</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Event-driven Slim 4 skeleton with AMQP and CQRS.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/symfony-skeleton" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/symfony-skeleton.png" alt="symfony-skeleton"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">symfony-skeleton</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>1</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Symfony skeleton to bootstrap new DDD projects fast.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/wca-rest-api" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/wca-rest-api.png" alt="wca-rest-api"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">wca-rest-api</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>17</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Unofficial World Cube Association Public REST API.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/playstation-easy-platinums" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/playstation-trophies.png" alt="playstation-easy-platinums"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">playstation-easy-platinums</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>13</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Collection of easy and quick PlayStation platinum trophies.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/docker-browsershot" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/browsershot.png" alt="docker-browsershot"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">docker-browsershot</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>11</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Docker container for using the Spatie\Browsershot package.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/drupal-amqp-rabbitmq" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/drupal-rabbitmq.png" alt="drupal-amqp-rabbitmq"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">drupal-amqp-rabbitmq</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>6</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Illustrates how to set up AMQP within Drupal.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/medium-rss-github" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/medium-rss-feed.png" alt="medium-rss-github"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">medium-rss-github</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>1</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Add your recently published Medium articles to your GitHub Readme.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal flex items-center bg-white border border-black/[0.07] rounded-2xl overflow-hidden no-underline text-inherit" href="https://github.com/robiningelbrecht/google-spreadsheets-improved-query" target="_blank">
+        <div class="w-28 min-w-[7rem] h-28 overflow-hidden bg-cream-200 shrink-0"><img class="project-img w-full h-full object-cover" src="https://robiningelbrecht.be/assets/projects/google-spreadsheets.png" alt="google-spreadsheets-improved-query"></div>
+        <div class="flex flex-col justify-center px-5 py-4 min-w-0">
+          <p class="project-name font-mono text-[13px] font-bold text-stone-900 truncate mb-1.5 transition-colors duration-200">google-spreadsheets-improved-query</p>
+          <p class="flex items-center gap-1 font-mono text-[12px] text-yellow-500 mb-2"><svg class="w-3.5 h-3.5 shrink-0" fill="#F1C300" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z"/></svg>0</p>
+          <p class="text-[12px] text-stone-500 leading-snug line-clamp-2">Use column names in Google Spreadsheets QUERY().</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="flex items-center justify-between flex-wrap gap-6 px-12 py-10 bg-stone-900 border-t border-white/5">
+  <p class="font-mono text-[12px] text-white/40">© 2026 Robin Ingelbrecht — Bruges, Belgium</p>
+  <ul class="flex gap-2 list-none">
+    <li><a href="https://github.com/robiningelbrecht" title="GitHub" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/[0.07] border border-white/10 text-white/40 hover:bg-brand hover:border-brand hover:text-white transition-all duration-200">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/></svg>
+    </a></li>
+    <li><a href="https://www.linkedin.com/in/robin-ingelbrecht/" title="LinkedIn" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/[0.07] border border-white/10 text-white/40 hover:bg-brand hover:border-brand hover:text-white transition-all duration-200">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 32 32"><path d="M28.778 1.004h-25.56c-1.199 0-2.172.964-2.186 2.159v25.672c.014 1.196.987 2.161 2.186 2.161h25.555c1.2 0 2.175-.963 2.194-2.159v-25.67c-.019-1.197-.994-2.161-2.195-2.161zm-18.878 25.558h-4.454v-14.311h4.454v14.311zm-2.226-16.269c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579 2.579 1.154 2.579 2.578c0 1.423-1.154 2.577-2.577 2.577zm19.082 16.269h-4.441v-6.959c0-1.66-.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h.058c.828-1.395 2.326-2.315 4.039-2.315 4.5 0 5.332 2.962 5.332 6.817v7.855z"/></svg>
+    </a></li>
+    <li><a href="https://ingelbrechtrobin.medium.com/" title="Medium" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/[0.07] border border-white/10 text-white/40 hover:bg-brand hover:border-brand hover:text-white transition-all duration-200">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13 12C13 15.31 10.31 18 7 18C3.69 18 1 15.31 1 12C1 8.69 3.69 6 7 6C10.31 6 13 8.69 13 12ZM23 12C23 14.76 22.55 17 22 17C21.45 17 21 14.76 21 12C21 9.24 21.45 7 22 7C22.55 7 23 9.24 23 12ZM17 18C18.66 18 20 15.31 20 12C20 8.69 18.66 6 17 6C15.34 6 14 8.69 14 12C14 15.31 15.34 18 17 18Z"/></svg>
+    </a></li>
+    <li><a href="https://www.strava.com/athletes/62214940" title="Strava" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/[0.07] border border-white/10 text-white/40 hover:bg-brand hover:border-brand hover:text-white transition-all duration-200">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 32 32"><path d="M20.516 23.927l-2.786-5.49h-4.083l6.87 13.563 6.865-13.563h-4.083zM13.953 10.974l3.781 7.464h5.563l-9.344-18.438-9.333 18.438h5.557z"/></svg>
+    </a></li>
+  </ul>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js"></script>
+<script>
+window.addEventListener('load', () => {
+  new Typed('.typed', {
+    stringsElement: '.typed-strings',
+    loop: true,
+    typeSpeed: 20,
+    backSpeed: 20,
+    backDelay: 2000,
+  });
+});
+
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 72);
+}, { passive: true });
+window.addEventListener('load', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 72);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 55);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

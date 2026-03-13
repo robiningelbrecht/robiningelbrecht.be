@@ -1,40 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-    h1, h2, h3, h4, h5, h6 {
-        @apply font-extrabold font-alt;
-    }
-    h3{
-        @apply mb-20 text-center font-black text-6xl;
-    }
+@source "../templates/**/*.html.twig";
+
+@theme {
+    --font-display: "Outfit", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    --color-cream-50: #faf9f7;
+    --color-cream-100: #f2f0ec;
+    --color-cream-200: #e8e5df;
 }
 
 @layer components {
-    nav a.nav-link {
-        @apply relative;
+    nav {
+        @apply text-white;
+
+        a.nav-link {
+            @apply relative text-sm font-medium;
+
+            &:after {
+                content: '';
+                @apply w-0 block absolute -bottom-[4px] left-0 h-[1px] transition-all duration-300 bg-white;
+            }
+
+            &:hover {
+                &:after {
+                    @apply w-full;
+                }
+            }
+        }
+
+        &.nav-scroll {
+            @apply shadow-xs bg-white text-stone-900 ;
+
+            a.nav-link {
+                @apply text-stone-900;
+
+                &:after {
+                    @apply bg-stone-900;
+                }
+            }
+        }
     }
 
-    nav a.nav-link:after {
-        content: '';
-        @apply w-0 block absolute bottom-0 left-0 h-0.5 transition-all duration-300 bg-white;
+    @keyframes scrollPulse {
+        0%, 100% {
+            opacity: .4;
+            transform: scaleY(1)
+        }
+        50% {
+            opacity: 1;
+            transform: scaleY(0.4)
+        }
     }
-
-    nav a.nav-link:hover:after {
-        @apply w-full;
-    }
-
-    nav.nav-scroll{
-        @apply shadow-[0px_30px_50px_rgba(0,_0,_0,_0.05)] fixed top-0 left-0 py-4 bg-white text-primary transition-all duration-200 w-full;
-    }
-
-    nav.nav-scroll a.nav-link:hover:after{
-        @apply bg-primary;
+    .scroll-line {
+        animation: scrollPulse 2s ease-in-out infinite;
     }
 
     header:after {
         content: '';
         @apply absolute top-0 bottom-0 left-0 right-0 bg-black z-[2] opacity-65;
+    }
+
+    .card {
+        @apply transition duration-200 ease-in-out;
+        @apply hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(0,0,0,0.09)] hover:border-black/14;
+
+        img {
+            @apply transition duration-500 ease-in-out;
+        }
+
+        svg {
+            @apply transition duration-200 ease-in-out;
+        }
+
+        &:hover {
+            img {
+                @apply scale-[1.05];
+            }
+
+            svg {
+                @apply translate-x-[4px];
+            }
+        }
     }
 }
