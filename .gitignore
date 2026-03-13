@@ -4,3 +4,4 @@ var
 .php-cs-fixer.cache
 .phpunit.result.cache
 .idea
+node_modules
