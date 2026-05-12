@@ -34,6 +34,7 @@ class BuildSiteConsoleCommand extends Command
 
         $reposToInclude = [
             'statistics-for-strava' => 'https://raw.githubusercontent.com/robiningelbrecht/statistics-for-strava/refs/heads/master/public/assets/images/logo-square.svg',
+            'wind-ahead' => 'https://raw.githubusercontent.com/robiningelbrecht/wind-ahead/refs/heads/master/assets/logo.svg',
             'phpunit-pretty-print' => 'assets/repos/phpunit-pretty-print.png',
             'phpunit-coverage-tools' => 'assets/repos/phpunit-coverage.png',
             'symfony-skeleton' => 'assets/repos/symfony-skeleton.png',
