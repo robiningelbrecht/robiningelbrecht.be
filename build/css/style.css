@@ -79,7 +79,7 @@
                 @apply scale-[1.05];
             }
 
-            svg {
+            svg.arrow {
                 @apply translate-x-[4px];
             }
         }
