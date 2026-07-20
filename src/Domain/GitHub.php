@@ -10,7 +10,8 @@ class GitHub
 {
     public function __construct(
         private readonly Client $client,
-    ) {
+    )
+    {
     }
 
     private function request(
@@ -26,15 +27,28 @@ class GitHub
         return Json::decode($response->getBody()->getContents());
     }
 
-    public function getUserRepos($user): array
+    public function getUserRepos(string $user): array
     {
         return $this->request(
             sprintf('users/%s/repos', $user),
             'GET',
             [
-                RequestOptions::QUERY=> [
-                    'per_page'=> 100,
-                ]
+                RequestOptions::QUERY => [
+                    'per_page' => 100,
+                ],
+            ],
+        );
+    }
+
+    public function getOrganisationRepos(string $organization): array
+    {
+        return $this->request(
+            sprintf('orgs/%s/repos', $organization),
+            'GET',
+            [
+                RequestOptions::QUERY => [
+                    'per_page' => 100,
+                ],
             ],
         );
     }

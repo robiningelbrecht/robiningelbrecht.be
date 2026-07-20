@@ -28,13 +28,15 @@ class BuildSiteConsoleCommand extends Command
     {
         $pathToBuildDir = Settings::getAppRoot() . '/build';
 
-        $allGithubRepos = $this->gitHub->getUserRepos('robiningelbrecht');
+        $allGithubRepos = [
+            ...$this->gitHub->getUserRepos('robiningelbrecht'),
+            ...$this->gitHub->getOrganisationRepos('dreeveapp'),
+        ];
         $blogPosts = $this->mediumRss->getFeed();
 
-
         $reposToInclude = [
-            'statistics-for-strava' => 'https://raw.githubusercontent.com/robiningelbrecht/statistics-for-strava/refs/heads/master/public/assets/images/logo-square.svg',
-            'wind-ahead' => 'https://raw.githubusercontent.com/robiningelbrecht/wind-ahead/refs/heads/master/assets/logo.svg',
+            'dreeve' => 'https://raw.githubusercontent.com/dreeveapp/dreeve/refs/heads/master/public/assets/images/logo-square.svg',
+            'wind-ahead' => 'https://raw.githubusercontent.com/dreeveapp/wind-ahead/refs/heads/master/assets/logo.svg',
             'phpunit-pretty-print' => 'assets/repos/phpunit-pretty-print.png',
             'phpunit-coverage-tools' => 'assets/repos/phpunit-coverage.png',
             'symfony-skeleton' => 'assets/repos/symfony-skeleton.png',
