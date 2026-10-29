@@ -82,11 +82,11 @@
         <section id="blog" class="mb-20">
             <h2 class="font-display text-2xl font-semibold tracking-[-0.01em] mb-5">Recent writing</h2>
             {% for blogPost in blogPosts %}
-                <a href="{{ blogPost.getLink() }}" target="_blank" class="grid sm:grid-cols-[150px_1fr] gap-5 p-4 -mx-4 rounded-[10px] transition-colors duration-150 hover:bg-zinc-100">
-                    <img class="w-full h-40 sm:h-[90px] object-cover rounded-md border border-zinc-200" src="{{ blogPost.getImage() }}" alt="{{ blogPost.getTitle()|raw }}" loading="lazy">
+                <a href="{{ blogPost.getLink() }}" target="_blank" class="grid grid-cols-[88px_1fr] items-center gap-4 px-3 py-2.5 -mx-3 rounded-lg transition-colors duration-150 hover:bg-zinc-100">
+                    <img class="w-[88px] h-[52px] object-cover rounded border border-zinc-200" src="{{ blogPost.getImage() }}" alt="{{ blogPost.getTitle()|raw }}" loading="lazy">
                     <div>
-                        <time class="font-mono text-xs text-zinc-400">{{ blogPost.getPubDate().format('M d, Y') }}</time>
-                        <h3 class="text-base font-semibold leading-[1.4] mt-1">{{ blogPost.getTitle()|raw }}</h3>
+                        <time class="font-mono text-[11px] text-zinc-400">{{ blogPost.getPubDate().format('M d, Y') }}</time>
+                        <h3 class="text-[15px] font-semibold leading-snug">{{ blogPost.getTitle()|raw }}</h3>
                     </div>
                 </a>
             {% endfor %}
