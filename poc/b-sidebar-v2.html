@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B · Sidebar | Robin Ingelbrecht</title>
+<link href="../build/assets/favicon.png" rel="icon" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+svg{display:block}
+ul{list-style:none;margin:0;padding:0}
+h1,h2,h3,p{margin:0}
+
+body{background:#fff;color:#18181b;font-family:Inter,sans-serif;font-size:15px;line-height:1.6}
+.layout{max-width:1180px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:340px 1fr;gap:72px}
+aside{position:sticky;top:0;height:100vh;padding:72px 0;display:flex;flex-direction:column}
+aside img.avatar{width:88px;height:88px;border-radius:50%;margin-bottom:24px}
+aside h1{font-family:Outfit,sans-serif;font-size:34px;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+aside .role{font-size:13px;color:#3f3f46;margin:6px 0 16px;font-weight:500}
+aside .bio{color:#71717a;font-size:15px}
+aside .loc{display:flex;align-items:center;gap:6px;font-size:13px;color:#a1a1aa;margin-top:16px}
+aside .loc svg{width:12px;height:12px}
+aside nav{margin-top:40px;display:flex;flex-direction:column;gap:10px}
+aside nav a{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#a1a1aa;display:flex;align-items:center;gap:12px}
+aside nav a::before{content:"";width:28px;height:1px;background:currentColor;transition:width .15s}
+aside nav a:hover{color:#18181b}aside nav a:hover::before{width:48px}
+aside .socials{margin-top:auto;display:flex;gap:16px;align-items:center}
+aside .socials a{color:#a1a1aa}aside .socials a:hover{color:#18181b}
+aside .socials svg{width:20px;height:20px}
+aside .socials .resume{font-size:14px;font-weight:500;color:#18181b;border:1px solid #e4e4e7;border-radius:6px;padding:6px 12px;display:flex;align-items:center;gap:6px}
+aside .socials .resume svg{width:11px;height:11px}
+main{padding:72px 0}
+main section{margin-bottom:80px}
+main h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#a1a1aa;margin-bottom:20px}
+.post{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px;margin:0 -16px;border-radius:10px;transition:background .15s}
+.post:hover{background:#f4f4f5}
+.post img{width:150px;height:90px;object-fit:cover;border-radius:6px;border:1px solid #e4e4e7}
+.post time{font-size:12px;color:#a1a1aa;font-family:"JetBrains Mono",monospace}
+.post h3{font-size:16px;font-weight:600;line-height:1.4;margin-top:4px}
+.repos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.repo{border:1px solid #e4e4e7;border-radius:10px;padding:18px;display:flex;gap:14px;transition:border-color .15s}
+.repo:hover{border-color:#a1a1aa}
+.repo img{width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0;background:#f4f4f5}
+.repo h3{font-size:14px;font-weight:600;font-family:"JetBrains Mono",monospace;word-break:break-word}
+.repo p{font-size:13px;color:#71717a;margin-top:4px}
+.repo .stars{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#71717a;margin-top:8px}
+.repo .stars svg{width:11px;height:11px;color:#d6a400}
+@media(max-width:900px){.layout{grid-template-columns:1fr;gap:0}aside{position:static;height:auto;padding-bottom:0}aside nav{display:none}aside .socials{margin-top:28px}.repos{grid-template-columns:1fr}}
+@media(max-width:520px){.post{grid-template-columns:1fr}.post img{width:100%;height:160px}}
+
+
+body{background:#faf9f7;color:#1c1917}
+aside .role{color:#57534e}aside .bio{color:#78716c}aside .loc{color:#a8a29e}
+aside nav a,aside .socials a,main h2{color:#a8a29e}
+aside .socials .resume{background:#fff;border-color:#e7e5e4;color:#1c1917}
+main h2{font-family:Outfit,sans-serif;font-size:24px;font-weight:600;text-transform:none;letter-spacing:-.01em;color:#1c1917}
+.post:hover{background:#f2f0ec}
+.post img{border-color:#e7e5e4}
+.post time{color:#a8a29e}
+.repo{background:#fff;border-color:#ebe8e3}
+.repo:hover{border-color:#a8a29e}
+.repo p,.repo .stars{color:#78716c}
+
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <img class="avatar" src="../build/assets/logo.png" alt="Robin Ingelbrecht">
+  <h1>Robin Ingelbrecht</h1>
+  <p class="role">Dad | PHP developer | Open source enthusiast | Amateur cyclist</p>
+  <p class="bio">I'm a PHP developer from Bruges, Belgium. I maintain a handful of open source projects. Outside of work I'm a dad and an amateur cyclist.</p>
+  <p class="loc"><svg fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.24 0 3 2.24 3 5c0 4.25 5 10 5 10s5-5.75 5-10c0-2.76-2.24-5-5-5zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg>Bruges, Belgium</p>
+  <nav><a href="#writing">Writing</a><a href="#projects">Projects</a></nav>
+  <div class="socials"><a class="" href="https://github.com/robiningelbrecht" title="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/></svg></a><a class="" href="https://www.linkedin.com/in/robin-ingelbrecht/" title="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M28.778 1.004h-25.56c-1.199 0-2.172.964-2.186 2.159v25.672c.014 1.196.987 2.161 2.186 2.161h25.555c1.2 0 2.175-.963 2.194-2.159v-25.67c-.019-1.197-.994-2.161-2.195-2.161zm-18.878 25.558h-4.454v-14.311h4.454v14.311zm-2.226-16.269c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579 2.579 1.154 2.579 2.578c0 1.423-1.154 2.577-2.577 2.577zm19.082 16.269h-4.441v-6.959c0-1.66-.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h.058c.828-1.395 2.326-2.315 4.039-2.315 4.5 0 5.332 2.962 5.332 6.817v7.855z"/></svg></a><a class="" href="https://ingelbrechtrobin.medium.com/" title="Medium" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 12C13 15.31 10.31 18 7 18C3.69 18 1 15.31 1 12C1 8.69 3.69 6 7 6C10.31 6 13 8.69 13 12ZM23 12C23 14.76 22.55 17 22 17C21.45 17 21 14.76 21 12C21 9.24 21.45 7 22 7C22.55 7 23 9.24 23 12ZM17 18C18.66 18 20 15.31 20 12C20 8.69 18.66 6 17 6C15.34 6 14 8.69 14 12C14 15.31 15.34 18 17 18Z"/></svg></a><a class="resume" href="https://resume.robiningelbrecht.be/" target="_blank">Resume <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l5-5M4 3.5h4.5V8"/></svg></a></div>
+</aside>
+<main>
+  <section id="writing">
+    <h2>Recent writing</h2>
+    <a class="post" href="https://ingelbrechtrobin.medium.com/dreeve-v5-0-a-self-hosted-solution-beyond-strava-bef036cdedbf?source=rss-45b70a6f6d97------2" target="_blank"><img src="https://cdn-images-1.medium.com/max/1024/0*b3y90-0oFxxasBWE" alt="" loading="lazy"><div><time>Jul 24, 2026</time><h3>Dreeve v5.0: a self-hosted solution beyond Strava</h3></div></a><a class="post" href="https://ingelbrechtrobin.medium.com/windahead-weather-and-wind-analysis-for-cycling-and-running-routes-494134899465?source=rss-45b70a6f6d97------2" target="_blank"><img src="https://cdn-images-1.medium.com/max/1024/0*xAWb22f5Ww35R1IB.png" alt="" loading="lazy"><div><time>May 13, 2026</time><h3>WindAhead, weather and wind analysis for cycling and running routes</h3></div></a><a class="post" href="https://ingelbrechtrobin.medium.com/adding-intensity-to-zone-2-my-weekly-zwift-training-plan-bc1b9f9185d3?source=rss-45b70a6f6d97------2" target="_blank"><img src="https://cdn-images-1.medium.com/max/1024/1*aRmaRGyeD5L0UCGQFjy40Q.png" alt="" loading="lazy"><div><time>Feb 18, 2026</time><h3>Adding intensity to zone 2: my weekly Zwift training plan</h3></div></a><a class="post" href="https://ingelbrechtrobin.medium.com/embracing-immutability-in-php-8-5-with-the-new-clone-method-b1efa5d09376?source=rss-45b70a6f6d97------2" target="_blank"><img src="https://cdn-images-1.medium.com/max/1024/1*yGJQghjGEmWRxzhINMmYdw.png" alt="" loading="lazy"><div><time>Feb 04, 2026</time><h3>Embracing immutability in PHP 8.5 with the new clone() method</h3></div></a><a class="post" href="https://ingelbrechtrobin.medium.com/one-year-of-statistics-for-strava-aec486385f46?source=rss-45b70a6f6d97------2" target="_blank"><img src="https://cdn-images-1.medium.com/max/1024/1*VgeDbs0YrT9f7BCASuwDBg.png" alt="" loading="lazy"><div><time>Dec 15, 2025</time><h3>One year of Statistics for Strava</h3></div></a><a class="post" href="https://ingelbrechtrobin.medium.com/the-power-of-symfonys-service-container-a27499762415?source=rss-45b70a6f6d97------2" target="_blank"><img src="https://cdn-images-1.medium.com/max/1024/1*e-w0SWp2OpdXq4NcJKXmuw.png" alt="" loading="lazy"><div><time>Dec 08, 2025</time><h3>The power of Symfony’s service container</h3></div></a><a class="post" href="https://ingelbrechtrobin.medium.com/theres-no-place-like-127-0-0-1-7a21a500a0f8?source=rss-45b70a6f6d97------2" target="_blank"><img src="https://cdn-images-1.medium.com/max/1024/1*4EOaw3jbke-vGNqkyU2jHg.png" alt="" loading="lazy"><div><time>Nov 23, 2025</time><h3>There’s no place like 127.0.0.1</h3></div></a><a class="post" href="https://ingelbrechtrobin.medium.com/strategy-pattern-because-your-giant-if-statement-is-crying-for-help-48e979d9a399?source=rss-45b70a6f6d97------2" target="_blank"><img src="https://cdn-images-1.medium.com/max/1024/0*7DZio5saypSPJMIr" alt="" loading="lazy"><div><time>May 12, 2025</time><h3>Strategy Pattern: Because Your Giant if Statement is Crying for Help</h3></div></a>
+  </section>
+  <section id="projects">
+    <h2>Open source</h2>
+    <div class="repos">
+    <a class="repo" href="https://github.com/dreeveapp/dreeve" target="_blank"><img src="https://raw.githubusercontent.com/dreeveapp/dreeve/refs/heads/master/public/assets/images/logo-square.svg" alt="" loading="lazy"><div><h3>dreeve</h3><p>Dreeve is a self-hosted, open-source dashboard for your sports and fitness data</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>2,166</span></div></a><a class="repo" href="https://github.com/dreeveapp/wind-ahead" target="_blank"><img src="https://raw.githubusercontent.com/dreeveapp/wind-ahead/refs/heads/master/assets/logo.svg" alt="" loading="lazy"><div><h3>wind-ahead</h3><p>A weather and wind analysis tool for your cycling and running routes</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>22</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/phpunit-pretty-print" target="_blank"><img src="../build/assets/repos/phpunit-pretty-print.png" alt="" loading="lazy"><div><h3>phpunit-pretty-print</h3><p>Better PHPUnit CLI output with Collision</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>77</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/phpunit-coverage-tools" target="_blank"><img src="../build/assets/repos/phpunit-coverage.png" alt="" loading="lazy"><div><h3>phpunit-coverage-tools</h3><p>A PHPUnit extension to enforce minimum code coverage by using the clover XML report</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>17</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/symfony-skeleton" target="_blank"><img src="../build/assets/repos/symfony-skeleton.png" alt="" loading="lazy"><div><h3>symfony-skeleton</h3><p>A Symfony skeleton I use to bootstrap new projects</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>2</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/php-slim-skeleton" target="_blank"><img src="../build/assets/repos/slim-skeleton.png" alt="" loading="lazy"><div><h3>php-slim-skeleton</h3><p>An event-driven Slim 4 Framework skeleton using AMQP and CQRS</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>47</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/pokemon-card-generator" target="_blank"><img src="../build/assets/repos/pokemon-card-generator.png" alt="" loading="lazy"><div><h3>pokemon-card-generator</h3><p>A PHP app that generates Pokemon cards by using GPT and Stable Diffusion.</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>88</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/wca-rest-api" target="_blank"><img src="../build/assets/repos/wca-rest-api.png" alt="" loading="lazy"><div><h3>wca-rest-api</h3><p>Unofficial World Cube Association (WCA) Public API</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>26</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/medium-rss-github" target="_blank"><img src="../build/assets/repos/medium-rss-feed.png" alt="" loading="lazy"><div><h3>medium-rss-github</h3><p>Add Your Recently Published Medium Articles to Your GitHub Readme</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>1</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/docker-browsershot" target="_blank"><img src="../build/assets/repos/browsershot.png" alt="" loading="lazy"><div><h3>docker-browsershot</h3><p>A docker container that allows you to use the Spatie\Browsershot package</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>11</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/google-spreadsheets-improved-query" target="_blank"><img src="../build/assets/repos/google-spreadsheets.png" alt="" loading="lazy"><div><h3>google-spreadsheets-improved-query</h3><p>Use column names in Google Spreadsheets QUERY()</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>0</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/playstation-easy-platinums" target="_blank"><img src="../build/assets/repos/playstation-trophies.png" alt="" loading="lazy"><div><h3>playstation-easy-platinums</h3><p>This repository is a collection of easy and quick obtainable PlayStation platinum trophies</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>13</span></div></a><a class="repo" href="https://github.com/robiningelbrecht/drupal-amqp-rabbitmq" target="_blank"><img src="../build/assets/repos/drupal-rabbitmq.png" alt="" loading="lazy"><div><h3>drupal-amqp-rabbitmq</h3><p>This repository aims to illustrate how to set up AMQP within Drupal</p><span class="stars"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>6</span></div></a>
+    </div>
+  </section>
+</main>
+</div>
+<style>.poc-switch{position:fixed;bottom:16px;right:16px;z-index:100;display:flex;gap:4px;padding:4px;background:#111;border-radius:8px;font:500 12px/1 Inter,sans-serif}.poc-switch a{color:#aaa;padding:7px 10px;border-radius:5px}.poc-switch a.on,.poc-switch a:hover{background:#333;color:#fff}</style><nav class="poc-switch"><a href="b-sidebar.html">Original</a><a href="b-sidebar-v2.html" class=on>v2 Warm</a><a href="b-sidebar-v3.html">v3 Panel</a><a href="b-sidebar-v4.html">v4 Accent</a><a href="b-sidebar-v5.html">v5 Compact</a></nav>
+</body>
+</html>
